@@ -468,7 +468,19 @@ Cette thématique est actuellement développée par Alexandre Lainé (thèse dé
 
 Dans l'axe applicatif, nous avons élaboré des méthodes de traitement de l'image et des vidéos s'inspirant du fonctionnement du système visuel biologique. Durant la thèse de Victor Boutin, nous avons conçu des modèles hiérarchiques intégrant deux caractéristiques essentielles des systèmes biologiques~: une régularisation pour contrôler la parcimonie de l'activité neuronale, et des interactions descendantes permettant d'intégrer une information contextuelle. Ces travaux ont conduit à des publications sur la topographie de V1~\citep{Chavane22} et à un modèle intégré de cette aire corticale~\citep{Franciosini21}.
 
-Grâce à une collaboration avec Stéphane Viollet (Institut des Sciences du Mouvement, Marseille) et Ryad Benosman (Institut de la Vision, Paris), et à l'obtention de l'ANR \textit{AgileNeuRobot} (ANR-20-CE23-0021) dont j'étais le porteur principal, nous avons étendu nos modèles du système visuel afin de les appliquer à des systèmes embarqués avec des contraintes énergétiques strictes. Ce projet utilise des caméras événementielles similaires dans leur nature au fonctionnement de la rétine biologique. Il a permis de recruter Antoine Grimaldi, qui a développé des algorithmes permettant la reconnaissance en temps réel~\citep{Grimaldi24}, l'apprentissage de réseaux basés sur un codage temporel précis~\citep{Grimaldi23BC}, et le calcul de cartes de temps de contact~\citep{Nunes23ICCV}.
+%-------------------------------------------------------------%
+\begin{figure}%[b!]
+\centering{
+\includegraphics[width=.8\linewidth]{Nunes24ICCV.jpg}
+}
+\caption{
+Résultats qualitatifs obtenus sur des séquences du jeu de données MVSEC. Les estimations du TTCM (Time-To-Collision Map) et du flux optique (optical flow) produites par la méthode proposée sont visuellement proches des valeurs de référence (Ground Truth, GT).
+}
+\label{fig:Nunes23ICCV}
+\end{figure}
+%-------------------------------------------------------------%
+
+Grâce à une collaboration avec Stéphane Viollet (Institut des Sciences du Mouvement, Marseille) et Ryad Benosman (Institut de la Vision, Paris), et à l'obtention de l'ANR \textit{AgileNeuRobot} (ANR-20-CE23-0021) dont j'étais le porteur principal, nous avons étendu nos modèles du système visuel afin de les appliquer à des systèmes embarqués avec des contraintes énergétiques strictes. Ce projet utilise des caméras événementielles similaires dans leur nature au fonctionnement de la rétine biologique. Il a permis de recruter Antoine Grimaldi, qui a développé des algorithmes permettant la reconnaissance en temps réel~\citep{Grimaldi24}, l'apprentissage de réseaux basés sur un codage temporel précis~\citep{Grimaldi23BC}, et le calcul de cartes de temps de contact~\citep{Nunes23ICCV} (voir Figure~\ref{fig:Grimaldi22}.
 
 Ce même projet ANR a permis le développement de la rétinotopie fovéée dans des algorithmes classiques d'apprentissage profond, grâce au travail doctoral de Jean-Nicolas Jérémie (soutenu en octobre 2025). Les résultats montrent une invariance à certaines transformations géométriques et une meilleure représentation de la localisation des objets~\citep{Jeremie25}.
 
@@ -478,7 +490,7 @@ Ce même projet ANR a permis le développement de la rétinotopie fovéée dans 
 
 Mon axe théorique principal repose sur l'utilisation des théories des processus prédictifs afin de mieux comprendre le système nerveux central. Dans la période de référence, j'ai développé des hypothèses autour de la représentation de l'information prédictive, notamment la représentation des probabilités sous-jacentes à ces processus.
 
-En contraste avec l'approche classique où la fréquence de décharge encode une valeur analogique, j'ai développé une formalisation de la représentation de l'information sous forme de motifs spatio-temporels d'impulsions neuronales, basée sur la notion de \emph{polychronie} (voir Figure~\ref{fig:Grimaldi22} pour une telle hypothèse). Grâce au projet \textit{Polychronies} (A*MIDEX AMX-21-RID-025, 2022/2025), j'ai pu développer cette théorie, donnant lieu à un article de revue~\citep{Grimaldi22polychronies} et à des algorithmes neuromorphiques~\citep{Grimaldi23BC} démontrant un gain énergétique de l'ordre de 500~fois par rapport à une méthode analogique.
+En contraste avec l'approche classique où la fréquence de décharge encode une valeur analogique, j'ai développé une formalisation de la représentation de l'information sous forme de motifs spatio-temporels d'impulsions neuronales, basée sur la notion de \emph{polychronie} (voir Figure~\ref{fig:Grimaldi22} pour une telle hypothèse). Grâce au projet \textit{Polychronies} (A*MIDEX AMX-21-RID-025, 2022/2025), j'ai pu développer cette théorie, donnant lieu à un article de revue~\citep{Grimaldi22polychronies} et à des algorithmes neuromorphiques~\citep{Grimaldi23BC} démontrant un gain énergétique de l'ordre de 500~fois par rapport à une méthode analogique. Ces résultats onbt été présentés et étendus dans une formalisation mathématique rigoureuse~\citep{Perrinet23ICANN} et sont maintenant développés dans des applications en cours de développement.
 
 
 %-------------------------------------------------------------%
@@ -861,6 +873,11 @@ Outre ces responsabilités scientifiques, je participe à l'animation scientifiq
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %============================================================
 
+% Cette partie concerne uniquement les rapports dans le cadre d’une évaluation « à vague ».
+% Vous présenterez :
+%  vos objectifs de recherche pour les 10 prochains semestres, en les mettant notamment en
+% perspective avec le projet de votre unité ;
+%  la contribution de vos objectifs de recherche aux grandes missions que s’est défini le CNRS.
 
 Au sein du système nerveux central, les aires visuelles sont
 essentielles pour transformer le signal lumineux brut en une
