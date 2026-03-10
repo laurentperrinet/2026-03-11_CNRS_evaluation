@@ -433,7 +433,7 @@ bien au-delà de la vision.
 %  les distinctions scientifiques que vous avez reçues et les contributions à l’avancée des
 % connaissances dans votre domaine qu’elles ont récompensées.
 
-Mon champ de recherche examine les caractéristiques des réseaux de neurones artificiels (RNA) appliqués à des modèles de la vision humaine ou animale. Cette recherche vise principalement à mieux comprendre le fonctionnement biologique des voies visuelles dans le système nerveux central, depuis la rétine jusqu'au contrôle du mouvement des yeux. De manière interdépendante, cette recherche permet de développer des méthodes d'apprentissage machine menant à des applications dans le domaine du traitement de l'image ou du signal. Sous cet angle, les RNA ont récemment connu un fort essor au travers de ce que l'on nomme de nos jours l'Intelligence Artificielle (IA) ou l'apprentissage profond.
+Mon champ de recherche examine les caractéristiques des réseaux de neurones artificiels (RNA) appliqués à des modèles de la vision humaine ou animale. Cette recherche vise principalement à mieux comprendre le fonctionnement biologique des voies visuelles dans le système nerveux central, depuis la rétine jusqu'au contrôle du mouvement des yeux. De manière interdépendante, cette recherche permet de développer des méthodes d'apprentissage machine menant à des applications dans le domaine du traitement de l'image ou du signal. Sous cet angle, les RNA ont récemment connu un fort essor au travers de ce que l'on nomme de nos jours l'Intelligence Artificielle (IA) ou l'apprentissage profond (``Deep Learning'').
 
 Dans ce contexte, mes recherches explorent les fondements théoriques et empiriques de l'adaptation neurale, en m'intéressant à la manière dont les propriétés structurelles et fonctionnelles co-évoluent pour traiter de manière optimale les régularités statistiques des environnements naturels. Un \textbf{premier axe expérimental}, mené en collaboration avec des neurophysiologistes, étudie la réponse du système biologique à des stimulations visuelles informées par la modélisation. Un \textbf{deuxième axe applicatif} utilise ces connaissances pour construire des algorithmes efficaces adaptés à des systèmes embarqués, comme des robots aériens. Un \textbf{troisième axe théorique} examine les conséquences de ces contraintes sur les modes de représentation possibles du code neural, en se concentrant notamment sur un codage temporel précis de l'information neurale.
 
@@ -444,8 +444,7 @@ En pratique, mon approche en tant que chercheur du CNRS est de contribuer aux av
 \subsection{Axe expérimental}
 %------------------------------------------------------------
 
-Le premier axe de mes activités de recherche a pour objectif de valider expérimentalement les algorithmes de modélisation et hypothèses théoriques concernant les processus prédictifs sous-tendant nos capacités cognitives. J'ai développé une classe de stimuli appelée les \emph{Motion Clouds} qui permettent de tester les capacités de la vision à détecter des mouvements à différentes vitesses, orientations ou fréquences~\citep{Sanz12}  (voir Fig.~\ref{fig:motionclouds}).
-
+Le premier axe de mes activités de recherche a pour objectif de valider expérimentalement les algorithmes de modélisation et hypothèses théoriques concernant les processus prédictifs sous-tendant nos capacités cognitives. J'ai développé une classe de stimuli appelée les \emph{Motion Clouds} (MCs) qui permettent de tester les capacités de la vision à détecter des mouvements à différentes vitesses, orientations ou fréquences~\citep{Sanz12}  (voir Fig.~\ref{fig:motionclouds}) comme des processus prédicitfs. Il est intéressant de noter que l'activité peut devenir plus précise à mesure que les caractéristiques visuelles s'accumulent. Par exemple,~\citep{Kremkow16} a montré et modélisé que les neurones de l'aire 17 du chat réagissent plus sélectivement lorsqu'ils se voient présenter des images naturelles (qui consistent localement en une somme de bords) qu'à un seul bord isolé. En utilisant les MCs, nous avons montré qu'un résultat similaire peut se produire chez les rongeurs dès la rétine~\citep{Ravello19}. Sur le plan comportemental, cela correspond également à l'observation chez l'homme que des textures plus complexes comme les MCs entraînent des mouvements oculaires plus robustes~\citep{Simoncini12}. Ces phénomènes sont conformes au principe du traitement prédictif selon lequel, en accumulant des informations cohérentes, la probabilité \emph{a posteriori} (et donc la réponse du système) devient plus précise.
 
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
 %%: figure MC artwork
@@ -458,15 +457,88 @@ Le premier axe de mes activités de recherche a pour objectif de valider expéri
 % - - - - - - - - - - - - - - - - - - - - - ----------------------------------------------- - - - - - - - - - - - -
 % ----------------------------------------------------------------------------------------------------------------
 
-Pour examiner les processus prédictifs dans le système visuel, la thèse de Hugo Ladret s'est concentrée sur la capacité du cortex visuel primaire (V1) à représenter des informations de différentes précisions. Grâce à une collaboration avec l'Université de Montréal, nous avons développé un protocole expérimental en neurophysiologie qui a permis de tester la réponse à différents niveaux de précision. Notre étude a révélé deux populations neuronales distinctes dans V1~: l'une codant l'orientation avec une précision fine, l'autre exhibant une invariance à la précision~--- un mécanisme inédit impliquant des boucles récurrentes. Ces résultats, publiés dans \emph{Nature Communications Biology}~\citep{Ladret23}, remettent en cause les modèles classiques de traitement visuel et ouvrent des pistes pour des algorithmes robustes au bruit sensoriel.
+Le défi était alors de savoir si ce type de processus pourrait être présent au niveau expérimental. Pour examiner les processus prédictifs dans le système visuel, la thèse de Hugo Ladret s'est concentrée sur la capacité du cortex visuel primaire (V1) à représenter des informations de différentes précisions. Grâce à une collaboration avec l'Université de Montréal, nous avons développé un protocole expérimental en neurophysiologie qui a permis de tester la réponse à différents niveaux de précision. Notre étude a révélé deux populations neuronales distinctes dans V1~: l'une codant l'orientation avec une précision fine, l'autre exhibant une invariance à la précision~--- un mécanisme inédit impliquant des boucles récurrentes. Ces résultats, publiés dans \emph{Nature Communications Biology}~\citep{Ladret23}, remettent en cause les modèles classiques de traitement visuel et ouvrent des pistes pour des algorithmes robustes au bruit sensoriel.
 
-Cette thématique est actuellement développée par Alexandre Lainé (thèse débutée en octobre 2024, co-direction avec Sophie Denève), appliquée au Marmouset avec une technologie d'enregistrement basée sur des \emph{Neuropixels}. Une première présentation affichée a été donnée lors du congrès CNS~2025 à Florence, et un article est en cours de préparation.
+Cette thématique est actuellement développée par Alexandre Lainé (thèse débutée en octobre 2024, co-direction avec Sophie Denève), appliquée au Marmouset avec une technologie d'enregistrement basée sur des \emph{Neuropixels} obtenus auprès de niotre collaborateur à l'université du Texas à Austin, Nicholas Priebe. Une première présentation affichée a été donnée lors du congrès CNS~2025 à Florence, et un article est en cours de préparation.
 
 %------------------------------------------------------------
 \subsection{Axe applicatif}
 %------------------------------------------------------------
 
-Dans l'axe applicatif, nous avons élaboré des méthodes de traitement de l'image et des vidéos s'inspirant du fonctionnement du système visuel biologique. Durant la thèse de Victor Boutin, nous avons conçu des modèles hiérarchiques intégrant deux caractéristiques essentielles des systèmes biologiques~: une régularisation pour contrôler la parcimonie de l'activité neuronale, et des interactions descendantes permettant d'intégrer une information contextuelle. Ces travaux ont conduit à des publications sur la topographie de V1~\citep{Chavane22} et à un modèle intégré de cette aire corticale~\citep{Franciosini21}.
+Dans l'axe applicatif, nous avons élaboré des méthodes de traitement de l'image et des vidéos s'inspirant du fonctionnement du système visuel biologique et notamment des résultats expérimentaux obtenus. Durant la thèse de Victor Boutin, nous avons conçu des modèles hiérarchiques intégrant deux caractéristiques essentielles des systèmes biologiques~: une régularisation pour contrôler la parcimonie de l'activité neuronale, et des interactions descendantes permettant d'intégrer une information contextuelle. Ces travaux ont conduit à des publications sur la topographie de V1~\citep{Chavane22} et à un modèle intégré de cette aire corticale~\citep{Franciosini21}.
+
+En effet, il nous manque encore des modèles réalistes d'un traitement prédictif visuel. À l'issue des thèse d'Angelo Franciosini et Victooooor Boutin en 2022, nous avons proposé un modèle capable d'apprendre à traiter des images statiques~\citep{BoutinFranciosiniChavaneRuffierPerrinet20}. Il s'agit d'un réseau neural convolutionnel multicouche, où chaque couche comprend à la fois un mécanisme intra-cortical récursif pour générer des représentations parcimonieuses et la possibilité pour chaque couche d'intégrer des informations (feedback) provenant d'une couche de niveau supérieur, voir Figure~\ref{fig:BoutinFranciosiniChavaneRuffierPerrinet19}. La principale nouveauté de ce réseau est qu'il permet l'apprentissage non supervisé des noyaux convolutionnels à chaque couche. Comparés aux réseaux de neurones convolutionnels classiques tels que ceux que l'on trouve couramment dans les architectures d'apprentissage profond, nous avons constaté que les noyaux émergents étaient plus interprétables : Par exemple, en apprenant sur une classe d'images de visages humains, nous avons observé dans la deuxième couche différents neurones sensibles aux caractéristiques du visage comme les yeux, la bouche ou le nez. C'est similaire à ce que l'on trouve dans l'aire corticale du \href{https://fr.wikipedia.org/wiki/Lobule_fusiforme}{lobule fusiforme}, mais d'autres simulations sont nécessaires pour valider l'émergence de cette représentation. Nous avons aussi observé que les connections en retour, en ``feedback'' avaient une importance significative sur cette émergence~\citep{BoutinFranciosiniRuffierPerrinet20feedback}. Toutefois, ces simulations sont intensives en calcul et interdisent leur extension à des flux dynamiques sur des architectures informatiques conventionnelles. Une traduction de cet algorithme en un réseau neural impulsionnel serait donc très bénéfique et permettrait de l'appliquer à un flux dynamique d'images.
+
+
+% \subsubsection{Propriétés intégratives des aires corticales}
+%-------------------------------------------------------------%
+\begin{figure}%[b!]
+\centering{
+\includegraphics[width=\linewidth]{BoutinFranciosiniChavaneRuffierPerrinet19.pdf}
+}
+\caption{
+Dans~\citep{BoutinFranciosiniChavaneRuffierPerrinet20}, nous proposons un
+modèle de traitement hiérarchique de l'information visuelle (ici de 3 couches).
+De façon similaire à des réseaux de neurones convolutionnels classiques,
+chaque couche est constituée de canaux auxquels sont attribués des champs récepteurs.
+Toutefois, contrairement aux réseaux classiques, l'apprentissage est ici bio-mimétique,
+c'est-à-dire qu'au lieu d'opérer une retro-propagation (globale) du gradient,
+les opérations sont toutes locales et s'opèrent de proche en proche.
+Cet apprentissage non-supervisé est possible par l'introduction
+d'une contrainte de régularisation assurant la parcimonie de la représentation.
+On observe l'émergence de champs récepteurs sensibles à des bords orientés dans la première couche,
+de façon similaire à ce qui est observé dans le cortex visuel primaire.
+De façon plus surprenante, quand on apprend le réseau sur une base d'images de visages,
+on observe l'émergence de cellules sensible à des composantes indépendantes : bouche, yeux, contours allongés,~\ldots
+%(Reproduit de~\citep{BoutinFranciosiniChavaneRuffierPerrinet19} selon les termes de la \href{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005068}{Creative Commons Attribution License}, © The Authors 2017.)
+}
+\label{fig:BoutinFranciosiniChavaneRuffierPerrinet19}
+\end{figure}
+%-------------------------------------------------------------%
+
+%-------------------------------------------------------------%
+\begin{figure}[!ht]
+\vspace{-0.25cm}%\captionsetup{width=1\textwidth}
+\centerline{
+  \includegraphics[width=\textwidth]{fig_areadne.png}
+}
+\caption{
+Dans un modèle à double voie du système visuel~\citep{Dauce20}, la voie périphérique (rangée supérieure) est appliquée à une image de grande taille provenant d'une scène naturelle (A) : Il est d'abord transformé en une entrée log-polaire rétinotopique (B), puis on apprend à renvoyer une "carte de sallience" (C). Cette dernière déduit, pour différentes positions dans la cible, la valeur de précision prédite qui peut être atteinte par la voie fovéale, imitant la voie "Où" utilisée pour la localisation globale. La position présentant la meilleure précision alimentera un système de saccades (D), ajustant le point de fixation à l'entrée de la voie fovéale (ligne du bas). Il prend un sous-échantillon (E) de la large image (A), sur laquelle une catégorisation est effectuée (F), imitant la voie "Quoi".
+La modélisation de cette architecture à double voie permet d'offrir un modèle efficace de la recherche visuelle en tant que vision active. En particulier, elle permet de combler les lacunes des CNN en matière de performances physiologiques. Dans le futur, nous espérons appliquer ce modèle pour mieux comprendre les pathologies visuelles dans lesquelles il existerait une déficience de l'une des deux voies.
+}
+\label{fig:JNJER22}
+\end{figure}
+%-------------------------------------------------------------%
+
+
+
+
+Ce programme de recherche passe en revue ces approches de traitement prédictif
+dynamique pour la vision à différentes échelles d'analyse, de l'ensemble
+du système aux représentations intermédiaires et enfin aux neurones (en
+suivant dans un ordre décroissant les niveaux d'analyse de~\citet{Marr83}).
+Tout d'abord, nous appliquerons la FEP à la vision en tant qu'approche
+normative. De plus, les représentations visuelles doivent prendre en
+charge les transformations géométriques (comme le mouvement d'un objet
+visuel) mais aussi les modifications sensorielles, comme les mouvements
+des yeux. En étendant le principe précédent à la capacité
+d'échantillonner activement les données sensorielles, nous définirons
+l'inférence active (IA) et illustrerons son rôle potentiel dans la
+compréhension de la vision, ainsi que des comportements comme les
+mouvements oculaires  (voir Figure~\ref{fig:JNJER22} pour une implémentation que nous proposons). Ensuite, nous l'étendrons pour
+comprendre comment de tels processus peuvent être mis en œuvre sur des
+cartes rétinotopiques. %En particulier, nous montrerons
+% comment un tel modèle peut expliquer une illusion visuelle, l'effet du flash retardé. %Flash-lag.
+Ces données seront ensuite comparées aux données
+neurophysiologiques et nous examinerons les implémentations
+possibles de tels modèles dans les réseaux de neurones impulsionnels. En particulier, nous passerons en revue quelques modèles de
+micro-circuits élémentaires et détaillerons quelques règles potentielles
+pour apprendre la structure de leurs connexions d'une manière non
+supervisée. Nous pourrons ainsi conclure en dessinant les perspectives de résultats de ce programme de recherche.
+%
+
+
+
 
 %-------------------------------------------------------------%
 \begin{figure}%[b!]
@@ -489,6 +561,125 @@ Ce même projet ANR a permis le développement de la rétinotopie fovéée dans 
 %------------------------------------------------------------
 
 Mon axe théorique principal repose sur l'utilisation des théories des processus prédictifs afin de mieux comprendre le système nerveux central. Dans la période de référence, j'ai développé des hypothèses autour de la représentation de l'information prédictive, notamment la représentation des probabilités sous-jacentes à ces processus.
+
+Pour illustrer le défi de représenter un signal dynamique, prenons
+l'exemple de l'enregistrement d'un ensemble de cellules neurales dans
+certaines aires visuelles. Supposons que ces enregistrements soient
+évoqués par un signal visuel analogique (comme un signal lumineux
+projeté sur une population de cellules sensorielles rétiniennes) et que
+l'on puisse extraire les temps exacts des événements de décharge
+pour une population de cellules. Nous pouvons ensuite choisir d'afficher
+ces données sur une figure sous forme de ``tracé temporel'', c'est-à-dire de montrer le moment
+des spikes pour chacune des cellules identifiées. Le temps est donc
+relatif à celui de l'expérimentateur et est donné grâce à une horloge
+externe : Il est montré \emph{a posteriori}, c'est-à-dire après
+l'enregistrement. En général, cette définition d'un temps absolu a
+d'abord été formalisée par Newton et définit la plupart des lois de la
+physique, utilisant le temps comme un paramètre externe. Mais il n'y a
+encore aucune preuve que les neurones auraient accès à une horloge
+centrale qui donne accès à l'heure physique absolue. Au
+contraire, les réponses neurales sont uniquement contrôlées par la
+distribution \emph{actuelle} des gradients électrochimiques sur leur
+membrane, potentiellement modulés par les cellules voisines. Une telle
+notion du temps est propre à chaque neurone et à son environnement. En
+conséquence, la dynamique du réseau est largement asynchrone,
+c'est-à-dire que le ``chronométrage'' est décentralisé. De plus, cette
+notion locale de temps (de traitement) est \emph{a priori} disjointe du
+temps externe qui est utilisé pour représenter le signal visuel. Une
+telle observation est essentielle pour comprendre les principes qui
+guident l'organisation des processus visuels : Une théorie neurale des
+processus prédictifs ne peut être définie que dans ce temps local, en utilisant uniquement les informations disponibles
+localement et à l'instant présent. En particulier, nous proposerons que les
+processus neuronaux en vision visent à ``prédire le présent''~\citep{Changizi08} en utilisant un modèle générateur interne de la scène visuelle
+et en utilisant des données sensorielles pour valider cette
+représentation interne.
+
+Fait frappant, cela se traduit dans l'activité neurale par le fait que,
+pour un ensemble plus cohérent d'entrées sensorielles, l'activité neurale de la
+population est plus ``parcimonieux'' (en anglais, ``sparse'')~\citep{Vinje02,Baudot13}.
+Cela s'expliquait déjà par le modèle de codage prédictif de~\citep{Rao99} et mis en œuvre dans~\citep{Kremkow16} par exemple. Il
+est important de noter que le principe de codage parcimonieux est lui-même
+suffisant pour (1) expliquer de façon raisonnée une grande partie des
+mécanismes de contrôle du gain~\citep{Heeger17}  et (2) guider
+l'apprentissage de la connectivité dans une population de neurones,
+comme dans V1~\citep{Olshausen97,Perrinet10shl,Perrinet15bicv,Perrinet19hulk}. Cela aide
+à résoudre un problème important, à savoir que le système est
+auto-organisé et que l'apprentissage de la connectivité ne doit pas être
+supervisé. Ainsi, les règles de plasticité qui devraient être élaborées
+dans les SNN devraient utiliser des principes directeurs similaires.
+
+
+
+% \subsection{Problèmes ouverts des processus visuels prédictifs}
+% \label{sec:spikes}
+Dans~\citep{PerrinetAdamsFriston14}, nous avons étudié la dynamique du traitement prédictif à
+l'échelle macroscopique, c'est-à-dire en considérant les aires
+(corticales) comme des noeuds d'un graphe de dépendance. Dans la section~\ref{sec:maps},
+nous avons étendu ces modèles à la topographie de chaque aire visuelle. À une échelle
+encore plus fine que cette échelle mésoscopique intermédiaire se trouve
+l'échelle microscopique des cellules neurales. Pour mieux
+comprendre les mécanismes du traitement prédictif, je propose d'affiner
+maintenant la granularité de la modélisation à l'échelle neurale
+pour définir une hiérarchie de cartes de micro-circuits prototypiques. En
+particulier, en plus de la nature asynchrone de la représentation
+neurale que nous avons explorée ci-dessus, la communication entre
+neurones a la propriété d'être basée sur des événements. En effet, la
+grande majorité des cellules neurales à travers le monde vivant
+communiquent en utilisant des impulsions courtes et prototypiques
+appelées potentiels d'action ou \emph{spikes}. Dans cette section, nous
+proposons trois problèmes ouverts qui sont soulevés lors de la
+modélisation de tels réseaux de neurones impulsionnels (Spiking Neural Networks, SNN), en particulier dans le contexte du traitement prédictif.
+
+% \subsubsection{Les défis de la représentation de l'information visuelle
+% dans les réseaux de neurones impulsionnel
+% (SNN)}
+Après les premières générations d'ANN, les algorithmes actuels
+d'apprentissage machine tels que les algorithmes d'apprentissage profond
+(Deep Learning, DL) constituent une percée qui a formé une deuxième génération d'ANNs.
+Les SNN constituent une troisième génération potentielle~\citep{Ghosh09}. En effet, la représentation événementielle présente de
+nombreux avantages par rapport aux ANNs classiques. Par exemple, au lieu de
+répéter tous les calculs ­pour chaque couche, canal et pixel d'un ANN
+hiérarchique, et pour lesquels des GPU gourmands en énergie sont
+nécessaires, il suffit dans un SNN d'effectuer les calculs seulement sur les événements
+émis par des unités actives (au moment du spike). En particulier, un domaine de
+recherche en plein essor consiste à développer des matériels dédiés,
+comme les puces neuromorphiques, qui permettraient d'étendre le volume
+effectif des calculs au-delà des dernières générations de
+semi-conducteurs classiques (CPU, GPU) qui atteignent les limites de la
+loi de Moore.
+
+
+La nature discrète de l'adressage des neurones, d'une part, et la nature
+analogique de la synchronisation des spikes, d'autre part, sont
+essentielles dans ce nouveau type de représentation. Des résultats
+notables utilisant de telles architectures ont été obtenus dans la
+classification en temps réel et la fusion de capteurs~\citep{Oconnor13} et dans la reconnaissance de formes~\citep{Lagorce17,Grimaldi21cbmi,Grimaldi22pami}. En
+effet, une propriété importante des SNNs est la capacité d'encoder
+dynamiquement une variable interne latente (le potentiel de membrane en
+neuro-physiologie) et d'émettre un spike quand (et seulement quand) un
+seuil défini en interne est atteint. Ceci définit chaque neurone spikant
+comme un intégrateur (similaire aux neurones classiques), mais aussi
+potentiellement comme un détecteur de synchronisation~\citep{Perrinet02}.
+Cette capacité à moduler le traitement en fonction de la synchronisation
+relative des spikes présynaptiques constitue un nouveau paradigme pour les
+calculs neuraux~\citep{Paugam12}. Cela montre en
+particulier que l'équilibre du flux des spikes excitateurs et inhibiteurs
+entrants est crucial pour maximiser l'efficacité de ces SNN~\citep{Hansel12}. Nous envisageon à court terme d'utiliser des méthodes d'analyse de ``raster plots'' pour mieux élucider le rôle des événements dans le code neural (voir Figure~\ref{fig:Grimaldi22} pour une telle hypothèse).
+
+Un ``Saint Graal'' dans cette direction est de trouver des micro-circuits
+canoniques pour le codage prédictif~\citep{Bastos12}. Cela découle
+de l'observation qu'à travers les espèces et les aires, le cortex semble
+suivre une structure prototypique en couches. Dans le cas particulier de
+V1, alors que l'entrée thalamique atteint principalement la couche
+granulaire (intermédiaire), un flux de feed-forward se propage
+principalement aux couches efférentes à travers les couches
+supra-granulaires tandis que le feed-back est en majorité conduit  par les
+couches infra-granulaires. Cette ségrégation anatomique pourrait
+correspondre à différents types de signaux dans le codage prédictif,
+respectivement des états attendus et des erreurs de prédiction~\citep{Bastos12}. De tels micro-circuits de base ont été utilisés pour
+expliquer la réponse des neurones V1 aux scènes naturelles~\citep{Kremkow16} en utilisant un mécanisme push-pull. Des réseaux fonctionnels utilisant un apprentissage dépendant du temps des spikes ont aussi été utilisés pour expliquer des réponses obtenues chez le chat~\citep{Ladret19sfn}. Il n'en demeure pas moins
+qu'il est difficile de savoir comment un tel circuit peut émerger de principes computationnels généraux.
+
 
 En contraste avec l'approche classique où la fréquence de décharge encode une valeur analogique, j'ai développé une formalisation de la représentation de l'information sous forme de motifs spatio-temporels d'impulsions neuronales, basée sur la notion de \emph{polychronie} (voir Figure~\ref{fig:Grimaldi22} pour une telle hypothèse). Grâce au projet \textit{Polychronies} (A*MIDEX AMX-21-RID-025, 2022/2025), j'ai pu développer cette théorie, donnant lieu à un article de revue~\citep{Grimaldi22polychronies} et à des algorithmes neuromorphiques~\citep{Grimaldi23BC} démontrant un gain énergétique de l'ordre de 500~fois par rapport à une méthode analogique. Ces résultats onbt été présentés et étendus dans une formalisation mathématique rigoureuse~\citep{Perrinet23ICANN} et sont maintenant développés dans des applications en cours de développement.
 
@@ -917,9 +1108,8 @@ Néanmoins, la conception d'un tel
 circuit de traitement prédictif générique est un champ de recherche ouvert et nous énumérerons quelques implémentations possibles à l'aide
 de réseaux de neurones biomimétiques.
 
-\subsection{Motivation : Dynamique des calculs neuronaux
-sous-jacents au traitement
-visuel}
+\subsection{Motivation : Dynamique des calculs neuronaux sous-jacents au traitement visuel}
+
 La vision, c'est-à-dire la capacité de donner un sens à l'environnement
 lumineux, est traditionnellement considérée comme une séquence d'étapes
 de traitement allant de l'entrée rétinienne à une représentation de
@@ -1020,323 +1210,6 @@ disséquer les différents processus visuels. {\bf En particulier, nous nous
 concentrerons dans ce programme de recherche sur ma contribution dans l'étude
 du rôle de ces contraintes
 temporelles sur la dynamique des processus prédictifs}.
-%-------------------------------------------------------------%
-\begin{figure}[!ht]
-\vspace{-0.25cm}%\captionsetup{width=1\textwidth}
-\centerline{
-  \includegraphics[width=\textwidth]{fig_areadne.png}
-}
-\caption{
-Dans un modèle à double voie du système visuel~\citep{Dauce20}, la voie périphérique (rangée supérieure) est appliquée à une image de grande taille provenant d'une scène naturelle (A) : Il est d'abord transformé en une entrée log-polaire rétinotopique (B), puis on apprend à renvoyer une "carte de sallience" (C). Cette dernière déduit, pour différentes positions dans la cible, la valeur de précision prédite qui peut être atteinte par la voie fovéale, imitant la voie "Où" utilisée pour la localisation globale. La position présentant la meilleure précision alimentera un système de saccades (D), ajustant le point de fixation à l'entrée de la voie fovéale (ligne du bas). Il prend un sous-échantillon (E) de la large image (A), sur laquelle une catégorisation est effectuée (F), imitant la voie "Quoi".
-La modélisation de cette architecture à double voie permet d'offrir un modèle efficace de la recherche visuelle en tant que vision active. En particulier, elle permet de combler les lacunes des CNN en matière de performances physiologiques. Dans le futur, nous espérons appliquer ce modèle pour mieux comprendre les pathologies visuelles dans lesquelles il existerait une déficience de l'une des deux voies.
-}
-\label{fig:JNJER22}
-\end{figure}
-%-------------------------------------------------------------%
-
-
-Pour illustrer le défi de représenter un signal dynamique, prenons
-l'exemple de l'enregistrement d'un ensemble de cellules neurales dans
-certaines aires visuelles. Supposons que ces enregistrements soient
-évoqués par un signal visuel analogique (comme un signal lumineux
-projeté sur une population de cellules sensorielles rétiniennes) et que
-l'on puisse extraire les temps exacts des événements de décharge
-pour une population de cellules. Nous pouvons ensuite choisir d'afficher
-ces données sur une figure sous forme de ``tracé temporel'', c'est-à-dire de montrer le moment
-des spikes pour chacune des cellules identifiées. Le temps est donc
-relatif à celui de l'expérimentateur et est donné grâce à une horloge
-externe : Il est montré \emph{a posteriori}, c'est-à-dire après
-l'enregistrement. En général, cette définition d'un temps absolu a
-d'abord été formalisée par Newton et définit la plupart des lois de la
-physique, utilisant le temps comme un paramètre externe. Mais il n'y a
-encore aucune preuve que les neurones auraient accès à une horloge
-centrale qui donne accès à l'heure physique absolue. Au
-contraire, les réponses neurales sont uniquement contrôlées par la
-distribution \emph{actuelle} des gradients électrochimiques sur leur
-membrane, potentiellement modulés par les cellules voisines. Une telle
-notion du temps est propre à chaque neurone et à son environnement. En
-conséquence, la dynamique du réseau est largement asynchrone,
-c'est-à-dire que le ``chronométrage'' est décentralisé. De plus, cette
-notion locale de temps (de traitement) est \emph{a priori} disjointe du
-temps externe qui est utilisé pour représenter le signal visuel. Une
-telle observation est essentielle pour comprendre les principes qui
-guident l'organisation des processus visuels : Une théorie neurale des
-processus prédictifs ne peut être définie que dans ce temps local, en utilisant uniquement les informations disponibles
-localement et à l'instant présent. En particulier, nous proposerons que les
-processus neuronaux en vision visent à ``prédire le présent''~\citep{Changizi08} en utilisant un modèle générateur interne de la scène visuelle
-et en utilisant des données sensorielles pour valider cette
-représentation interne.
-
-Ce programme de recherche passe en revue ces approches de traitement prédictif
-dynamique pour la vision à différentes échelles d'analyse, de l'ensemble
-du système aux représentations intermédiaires et enfin aux neurones (en
-suivant dans un ordre décroissant les niveaux d'analyse de~\citet{Marr83}).
-Tout d'abord, nous appliquerons la FEP à la vision en tant qu'approche
-normative. De plus, les représentations visuelles doivent prendre en
-charge les transformations géométriques (comme le mouvement d'un objet
-visuel) mais aussi les modifications sensorielles, comme les mouvements
-des yeux. En étendant le principe précédent à la capacité
-d'échantillonner activement les données sensorielles, nous définirons
-l'inférence active (IA) et illustrerons son rôle potentiel dans la
-compréhension de la vision, ainsi que des comportements comme les
-mouvements oculaires  (voir Figure~\ref{fig:JNJER22} pour une implémentation que nous proposons). Ensuite, nous l'étendrons pour
-comprendre comment de tels processus peuvent être mis en œuvre sur des
-cartes rétinotopiques. %En particulier, nous montrerons
-% comment un tel modèle peut expliquer une illusion visuelle, l'effet du flash retardé. %Flash-lag.
-Ces données seront ensuite comparées aux données
-neurophysiologiques et nous examinerons les implémentations
-possibles de tels modèles dans les réseaux de neurones impulsionnels. En particulier, nous passerons en revue quelques modèles de
-micro-circuits élémentaires et détaillerons quelques règles potentielles
-pour apprendre la structure de leurs connexions d'une manière non
-supervisée. Nous pourrons ainsi conclure en dessinant les perspectives de résultats de ce programme de recherche.
-%
-
-
-
-\subsection{Problèmes ouverts des processus visuels prédictifs}
-\label{sec:spikes}
-Dans~\citep{PerrinetAdamsFriston14}, nous avons étudié la dynamique du traitement prédictif à
-l'échelle macroscopique, c'est-à-dire en considérant les aires
-(corticales) comme des noeuds d'un graphe de dépendance. Dans la section~\ref{sec:maps},
-nous avons étendu ces modèles à la topographie de chaque aire visuelle. À une échelle
-encore plus fine que cette échelle mésoscopique intermédiaire se trouve
-l'échelle microscopique des cellules neurales. Pour mieux
-comprendre les mécanismes du traitement prédictif, je propose d'affiner
-maintenant la granularité de la modélisation à l'échelle neurale
-pour définir une hiérarchie de cartes de micro-circuits prototypiques. En
-particulier, en plus de la nature asynchrone de la représentation
-neurale que nous avons explorée ci-dessus, la communication entre
-neurones a la propriété d'être basée sur des événements. En effet, la
-grande majorité des cellules neurales à travers le monde vivant
-communiquent en utilisant des impulsions courtes et prototypiques
-appelées potentiels d'action ou \emph{spikes}. Dans cette section, nous
-proposons trois problèmes ouverts qui sont soulevés lors de la
-modélisation de tels réseaux de neurones impulsionnels (Spiking Neural Networks, SNN), en particulier dans le contexte du traitement prédictif.
-
-\subsubsection{Les défis de la représentation de l'information visuelle
-dans les réseaux de neurones impulsionnel
-(SNN)}
-Après les premières générations d'ANN, les algorithmes actuels
-d'apprentissage machine tels que les algorithmes d'apprentissage profond
-(Deep Learning, DL) constituent une percée qui a formé une deuxième génération d'ANNs.
-Les SNN constituent une troisième génération potentielle~\citep{Ghosh09}. En effet, la représentation événementielle présente de
-nombreux avantages par rapport aux ANNs classiques. Par exemple, au lieu de
-répéter tous les calculs ­pour chaque couche, canal et pixel d'un ANN
-hiérarchique, et pour lesquels des GPU gourmands en énergie sont
-nécessaires, il suffit dans un SNN d'effectuer les calculs seulement sur les événements
-émis par des unités actives (au moment du spike). En particulier, un domaine de
-recherche en plein essor consiste à développer des matériels dédiés,
-comme les puces neuromorphiques, qui permettraient d'étendre le volume
-effectif des calculs au-delà des dernières générations de
-semi-conducteurs classiques (CPU, GPU) qui atteignent les limites de la
-loi de Moore.
-
-
-%-------------------------------------------------------------%
-\begin{figure}%[b!]
-\centering{
-%---------------------------
-\subfloat[Raster plot of PGs]{\includegraphics[width=.35\linewidth]{Grimaldi22_figure_1a_k.pdf}}%
-\hfill
-\subfloat[Raster plot of PGs]{\includegraphics[width=.25\linewidth]{Grimaldi22_figure_1b.pdf}}%
-\hfill
-\subfloat[Observed raster plot]{\includegraphics[width=.35\linewidth]{Grimaldi22_figure_1a.pdf}}%
-%\vspace{-55pt}
-\vspace{-.1cm}
-}
-\caption{
-Un exemple de ``raster plot'' synthétique est généré dans {\it (a)} comme la combinaison de PGs dont le timing et l'identité sont déterminés dans {\it (b)}, ici une superposition de $4$ PGs projetés sur l'espace synaptique de $10$ neurones et à une fréquence moyenne de $3$~Hz pendant $1000$~ms. En observant les spikes de {\it (a)}, le modèle décode l'identité et le timing des PGs dans {\it (b)}, ce qui nous permet de colorer les spikes dans {\it (c)}. % par rapport à celui du PG qui les a le plus probablement générés.
-}
-\label{fig:Grimaldi22}
-\end{figure}
-%-------------------------------------------------------------%
-
-La nature discrète de l'adressage des neurones, d'une part, et la nature
-analogique de la synchronisation des spikes, d'autre part, sont
-essentielles dans ce nouveau type de représentation. Des résultats
-notables utilisant de telles architectures ont été obtenus dans la
-classification en temps réel et la fusion de capteurs~\citep{Oconnor13} et dans la reconnaissance de formes~\citep{Lagorce17,Grimaldi21cbmi,Grimaldi22pami}. En
-effet, une propriété importante des SNNs est la capacité d'encoder
-dynamiquement une variable interne latente (le potentiel de membrane en
-neuro-physiologie) et d'émettre un spike quand (et seulement quand) un
-seuil défini en interne est atteint. Ceci définit chaque neurone spikant
-comme un intégrateur (similaire aux neurones classiques), mais aussi
-potentiellement comme un détecteur de synchronisation~\citep{Perrinet02}.
-Cette capacité à moduler le traitement en fonction de la synchronisation
-relative des spikes présynaptiques constitue un nouveau paradigme pour les
-calculs neuraux~\citep{Paugam12}. Cela montre en
-particulier que l'équilibre du flux des spikes excitateurs et inhibiteurs
-entrants est crucial pour maximiser l'efficacité de ces SNN~\citep{Hansel12}. Nous envisageon à court terme d'utiliser des méthodes d'analyse de ``raster plots'' pour mieux élucider le rôle des événements dans le code neural (voir Figure~\ref{fig:Grimaldi22} pour une telle hypothèse).
-
-
-\subsubsection{Le rôle des vagues d'activité corticales dans le traitement
-dynamique de l'information
-visuelle}
-Un autre point crucial dans le décryptage des mécanismes de traitement
-prédictif est donné par l'anatomie fonctionnelle. En effet, dans le
-cortex visuel primaire (V1) comme dans les autres aires corticales, le
-réseau neural est très majoritairement récurrent avec un nombre médian de $10000$
-connexions par neurone. Étonnamment, $95 \%$ de ces connexions se
-produisent dans un rayon de $2 mm$ (singe macaque)~\citep{Markov13}.
-Cela suggère qu'une majorité de ressources neurales est consacrée aux
-communications intra-régionales. Un rôle fonctionnel supposé de ce
-réseau dense est de générer des vagues d'activité qui modulent la force
-et la dynamique de l'activité neurale ``feed-forward''~\citep{Muller18}. Nous avons vu son rôle potentiel dans la désambiguïsation du
-mouvement~\citep{Chemla19} et il a également été démontré qu'il
-facilite l'accumulation progressive de l'information visuelle~\citep{Bringuier99}. Auparavant, nous avons modélisé avec succès un tel
-processus prédictif~\citep{Perrinet12pred,Khoei13jpp,KhoeiMassonPerrinet17}, et l'avons mis en œuvre dans un SNN~\citep{Kaplan13}.
-
-Un ``Saint Graal'' dans cette direction est de trouver des micro-circuits
-canoniques pour le codage prédictif~\citep{Bastos12}. Cela découle
-de l'observation qu'à travers les espèces et les aires, le cortex semble
-suivre une structure prototypique en couches. Dans le cas particulier de
-V1, alors que l'entrée thalamique atteint principalement la couche
-granulaire (intermédiaire), un flux de feed-forward se propage
-principalement aux couches efférentes à travers les couches
-supra-granulaires tandis que le feed-back est en majorité conduit  par les
-couches infra-granulaires. Cette ségrégation anatomique pourrait
-correspondre à différents types de signaux dans le codage prédictif,
-respectivement des états attendus et des erreurs de prédiction~\citep{Bastos12}. De tels micro-circuits de base ont été utilisés pour
-expliquer la réponse des neurones V1 aux scènes naturelles~\citep{Kremkow16} en utilisant un mécanisme push-pull. Des réseaux fonctionnels utilisant un apprentissage dépendant du temps des spikes ont aussi été utilisés pour expliquer des réponses obtenues chez le chat~\citep{Ladret19sfn}. Il n'en demeure pas moins
-qu'il est difficile de savoir comment un tel circuit peut émerger de principes computationnels généraux.
-
-\subsubsection{Propriétés intégratives des aires corticales}
-%-------------------------------------------------------------%
-\begin{figure}%[b!]
-\centering{
-\includegraphics[width=\linewidth]{BoutinFranciosiniChavaneRuffierPerrinet19.pdf}
-}
-\caption{
-Dans~\citep{BoutinFranciosiniChavaneRuffierPerrinet20}, nous proposons un
-modèle de traitement hiérarchique de l'information visuelle (ici de 3 couches).
-De façon similaire à des réseaux de neurones convolutionnels classiques,
-chaque couche est constituée de canaux auxquels sont attribués des champs récepteurs.
-Toutefois, contrairement aux réseaux classiques, l'apprentissage est ici bio-mimétique,
-c'est-à-dire qu'au lieu d'opérer une retro-propagation (globale) du gradient,
-les opérations sont toutes locales et s'opèrent de proche en proche.
-Cet apprentissage non-supervisé est possible par l'introduction
-d'une contrainte de régularisation assurant la parcimonie de la représentation.
-On observe l'émergence de champs récepteurs sensibles à des bords orientés dans la première couche,
-de façon similaire à ce qui est observé dans le cortex visuel primaire.
-De façon plus surprenante, quand on apprend le réseau sur une base d'images de visages,
-on observe l'émergence de cellules sensible à des composantes indépendantes : bouche, yeux, contours allongés,~\ldots
-%(Reproduit de~\citep{BoutinFranciosiniChavaneRuffierPerrinet19} selon les termes de la \href{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005068}{Creative Commons Attribution License}, © The Authors 2017.)
-}
-\label{fig:BoutinFranciosiniChavaneRuffierPerrinet19}
-\end{figure}
-%-------------------------------------------------------------%
-Une autre perspective intéressante est la nature intégrative des calculs
-neuraux. Bien que l'on croit souvent que les neurones représentent la
-combinaison de caractéristiques visuelles, ce n'est en général pas
-correct~\citep{Tring18}. Au lieu de cela, il a été constaté que
-l'activité peut devenir plus précise à mesure que les caractéristiques
-visuelles s'accumulent. Par exemple,~\citep{Baudot13} a montré que
-les neurones de l'aire 17 du chat réagissent plus sélectivement
-lorsqu'ils se voient présenter des images naturelles (qui consistent localement en une somme de bords) qu'à un seul bord isolé. Récemment,
-nous avons montré qu'un résultat similaire peut se produire chez les rongeurs dès
-la rétine~\citep{Ravello19}. Sur le plan comportemental, cela correspond
-également à l'observation chez l'homme que des textures plus complexes
-entraînent des mouvements oculaires plus robustes~\citep{Simoncini12}. Ces phénomènes sont conformes au principe du traitement prédictif
-selon lequel, en accumulant des informations cohérentes, la probabilité
-\emph{a posteriori} (et donc la réponse du système) devient plus
-précise.
-
-Fait frappant, cela se traduit dans l'activité neurale par le fait que,
-pour un ensemble plus cohérent d'entrées sensorielles, l'activité neurale de la
-population est plus ``parcimonieux'' (en anglais, ``sparse'')~\citep{Vinje02,Baudot13}.
-Cela s'expliquait déjà par le modèle de codage prédictif de~\citep{Rao99} et mis en œuvre dans~\citep{Kremkow16} par exemple. Il
-est important de noter que le principe de codage parcimonieux est lui-même
-suffisant pour (1) expliquer de façon raisonnée une grande partie des
-mécanismes de contrôle du gain~\citep{Heeger17}  et (2) guider
-l'apprentissage de la connectivité dans une population de neurones,
-comme dans V1~\citep{Olshausen97,Perrinet10shl,Perrinet15bicv,Perrinet19hulk}. Cela aide
-à résoudre un problème important, à savoir que le système est
-auto-organisé et que l'apprentissage de la connectivité ne doit pas être
-supervisé. Ainsi, les règles de plasticité qui devraient être élaborées
-dans les SNN devraient utiliser des principes directeurs similaires.
-
-Cependant, il nous manque encore des modèles réalistes d'un tel
-traitement prédictif visuel. Nous avons construit un modèle simplifié
-capable de traiter des images statiques~\citep{BoutinFranciosiniChavaneRuffierPerrinet20}. Il s'agit
-d'un réseau neural convolutionnel multicouche, où chaque couche comprend à la fois un
-mécanisme intra-cortical récursif pour générer des représentations
-parcimonieuses et la possibilité pour chaque couche d'intégrer des informations
-(feedback) provenant d'une couche de niveau supérieur, voir Figure~\ref{fig:BoutinFranciosiniChavaneRuffierPerrinet19}.
-La principale
-nouveauté de ce réseau est qu'il permet l'apprentissage non supervisé
-des noyaux convolutionnels à chaque couche. Comparés aux réseaux de neurones
-convolutionnels classiques tels que ceux que l'on trouve couramment dans les
-architectures d'apprentissage profond, nous avons constaté que les
-noyaux émergents étaient plus interprétables : Par exemple, en apprenant
-sur une classe d'images de visages humains, nous avons observé dans la
-deuxième couche différents neurones sensibles aux caractéristiques du
-visage comme les yeux, la bouche ou le nez.
-C'est similaire à ce que
-l'on trouve dans l'aire corticale du \href{https://fr.wikipedia.org/wiki/Lobule_fusiforme}{lobule fusiforme}, mais d'autres simulations
-sont nécessaires pour valider l'émergence de cette représentation.
-Nous avons aussi observé que les connections en retour, en ``feedback''
-avaient une importance significative sur cette émergence~\citep{BoutinFranciosiniRuffierPerrinet20feedback}.
-Toutefois, ces simulations sont intensives en calcul et interdisent leur
-extension à des flux dynamiques sur des architectures informatiques conventionnelles. Une
-traduction de cet algorithme en un réseau neural impulsionnel serait donc
-très bénéfique et permettrait de l'appliquer à un flux dynamique
-d'images.
-
-\subsection{Résumé et conclusions}
-En résumé, nous avons examiné dans ce programme de recherche différents modèles de
-codage prédictif appliqués à la vision. Nous avons vu à l'échelle
-macroscopique le rôle de la dynamique à l'aide de l'inférence active. %(voir section~\ref{sec:ai}).
-En étendant ce modèle à une carte rétinotopique, nous
-pourrions décrire le rôle fonctionnelle des vagues d'activité pour améliorer la sélectivité à des
-stimuli visuels (voir section~\ref{sec:maps}). Cependant, nous avons également montré
-une limite de ces modèles à l'échelle microscopique (voir section~\ref{sec:spikes}). En
-particulier, on ne comprend pas encore, au niveau de la cellule unique,
-comment (1) l'information est représentée dans l'activité impulsionnelle, (2)
-quel est le rôle fonctionnel des vagues d'activité sur les surfaces
-corticales, (3) si un principe d'efficacité commun (comme un codage
-parcimonieux) pouvait être utilisé pour guider l'organisation de ces réseaux
-hautement récurrents dans un circuit universel unique.
-
-Pour approfondir nos connaissances du traitement prédictif en vision
-(voir section~\ref{sec:spikes}), il semble donc nécessaire de pouvoir mettre en œuvre
-des SNN à grande échelle mettant en œuvre des processus visuels
-complexes. Cependant, les trois différentes échelles anatomiques que
-nous avons mises en évidence ci-dessus (feed-forward, latéral, feedback)
-semblent être étroitement couplées et peuvent être difficiles à
-modéliser séparément. Plus généralement, c'est également vrai pour les
-échelles que nous avons définies, depuis le macroscopique, jusqu'au mésoscopique
-et au microscopique. Il est donc très difficile de produire des modèles
-assez simples pour nous aider à comprendre le traitement sous-jacent~\citep{Varoquaux19,Brette19}. Par exemple, après les avoir
-déduits des principes d'optimisation, tous les modèles que nous avons
-présentés ici sont préconnectés : Les hyper-paramètres contrôlant
-l'interconnexion des neurones sont fixes. Bien que nous ayons fourni des
-simulations montrant le rôle de ces hyperparamètres, il semble
-nécessaire de mieux comprendre leurs effets relatifs. %En particulier,
-%nous pensons que de telles architectures auto-organisées pourraient
-%définir le temps comme un processus prédictif de synchronisation de
-%variables émergentes aux multiples niveaux du traitement visuel.
-
-En effet, une théorie normative du traitement prédictif ne devrait pas
-seulement fournir une solution possible (un modèle donné avec un
-ensemble d'hyperparamètres) mais aussi explorer \emph{toutes les
-solutions possibles}. Une première méthodologie consiste à avoir une
-compréhension complète de l'ensemble des modèles à l'aide de l'analyse
-mathématique. Cependant, cela devient impossible pour des systèmes aussi
-complexes et l'utilisation d'hypothèses simplificatrices conduit souvent
-à une complexité superficielle. Un autre moyen consiste à élaborer des
-stratégies d'adaptation pour explorer l'espace fonctionnel de différents
-modèles. Ceci peut par exemple être développé à l'aide de techniques
-d'apprentissage machine telles que la descente stochastique de gradient
-couramment utilisée dans l'apprentissage profond. Une autre solution
-prometteuse consiste à explorer des stratégies d'adaptation inspirées de
-la biologie. Celles-ci existent à différentes échelles
-temporelles, allant des mécanismes d'adaptation rapide, à un
-apprentissage plus lent des connexions, ou à l'évolution à long terme
-des hyper-paramètres. En particulier, on ne comprend pas encore tout à
-fait comment implanter dans les SNNs une plasticité dépendante du temps de
-spike. Cela pose un défi futur dans notre compréhension de la science des
-processus prédictifs en vision qui définira mon prochain programme de recherche.
-
 
 
 \subsection*{Contexte et positionnement}
