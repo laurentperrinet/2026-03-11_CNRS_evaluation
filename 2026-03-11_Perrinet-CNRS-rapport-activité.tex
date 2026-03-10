@@ -1,0 +1,701 @@
+%!TeX TS-program = Lualatex
+%!TeX encoding = UTF-8 Unicode
+%!TeX spellcheck = fr-FR
+%!BIB TS-program = biber
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+\documentclass[10pt,french,a4paper,twoside]{article}%,oneside,draft
+%============ common ===================
+% \usepackage[utf8]{inputenc}%
+% \usepackage[official]{eurosym}
+\usepackage[french]{babel}%
+\usepackage{csquotes}%
+\usepackage{etaremune}%
+\usepackage[final]{pdfpages}%
+%% --- unit formatting ---
+\usepackage{microtype}	% Better typography \tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amsthm}			% Math packages
+\usepackage{bm}%This package defines commands to access bold math symbols
+%============ graphics ===================
+\graphicspath{{./figures/}}%
+\usepackage{graphicx}					% Enable pdflatex
+\usepackage{subfig}
+
+%============ front-matter ===================
+\newcommand{\BookTitle}{Centre National de la Recherche Scientifique\\de décembre 2022 à juin 2025}
+\newcommand{\Title}{%
+% Curriculum Vit\ae\ détaillé
+%Programme de recherche%: La dynamique de la vision est un processus prédictif
+Rapport d'activité scientifique
+}%
+\newcommand{\SubTitle}{%
+Pour évaluation par les sections du Comité national}%
+\newcommand{\Author}{Laurent U~Perrinet}%
+\newcommand{\Team}{\'Equipe NEural OPerations in TOpographies (NeOpTo)}%
+\newcommand{\Institute}{Institut de Neurosciences de la Timone}%
+\newcommand{\InstituteUMR}{UMR 7289, CNRS~/~Aix-Marseille Université}%
+\newcommand{\Address}{27, Bd. Jean Moulin, 13385 Marseille Cedex 5, France}
+\newcommand{\Website}{https://laurentperrinet.github.io/}
+\newcommand{\Email}{Laurent.Perrinet@univ-amu.fr}
+%%%%%%%%%%%%%%%%%%
+%BIBLIOGRAPHY 
+%%%%%%%%%%%%%%%%%%
+\usepackage[natbib=true,
+			bibencoding=utf8,
+%			encoding=utf8,
+			maxcitenames=7,
+			maxnames=7,
+			%minnames=3,
+			maxbibnames=7,
+            sortcites=true,
+            block=space,
+            backend=biber,
+%            doi=false,isbn=false,url=false,
+            citestyle=alphabetic,%authoryear-comp,
+            backref=true,
+%            bibstyle=alphabetic
+            ]{biblatex}%
+\addbibresource{~/sdrive_cnrs/blog/perrinet_curriculum-vitae.tex/LaurentPerrinet_publications.bib}
+\addbibresource{~/sdrive_cnrs/blog/perrinet_curriculum-vitae.tex/LaurentPerrinet_talks.bib}
+\addbibresource{~/Zotero/better-bibtex/zotero_export.bib}
+%\usepackage[normalem]{ulem} %for \uline{}
+%\DeclareNameFormat{given-family}{
+%  \ifgiveninits
+%  {\ifthenelse{\equal{\namepartfamily}{Toto}}
+%    {\uline{\namepartfamily\addspace\namepartgiveni\namepartsuffix}}
+%    {\namepartfamily\addspace\namepartgiveni\namepartsuffix}
+%    \ifthenelse{\value{listcount} < \value{liststop}}
+%    {\addcomma}
+%    {\ifthenelse{\ifmorenames}{~et \,al \adddot}}
+%    {}
+%  }
+%}
+% https://tex.stackexchange.com/questions/359311/how-to-underline-name-of-specific-authors-in-biblatex
+\usepackage{xpatch}
+\usepackage[normalem]{ulem}
+
+\newbox\savenamebox
+
+%\newbibmacro*{name:bbold}[2]{%
+%  \def\do##1{\iffieldequalstr{hash}{##1}{\bfseries\setbox\savenamebox\hbox\bgroup \listbreak}{}}%
+%  \dolistloop{\boldnames}%
+%}
+\newbibmacro*{name:bbold}[2]{%
+  \def\do##1{\iffieldequalstr{hash}{##1}{\setbox\savenamebox\hbox\bgroup \listbreak}{}}%
+  \dolistloop{\boldnames}%
+}
+
+\newbibmacro*{name:ebold}[2]{%
+  \def\do##1{\iffieldequalstr{hash}{##1}{\egroup\uline{\usebox\savenamebox}\listbreak}{}}%
+  \dolistloop{\boldnames}%
+}
+
+\xpatchbibmacro{name:given-family}{\usebibmacro{name:delim}{#2#3#1}}{\usebibmacro{name:delim}{#2#3#1}\begingroup\usebibmacro{name:bbold}{#1}{#2}}{}{}
+
+%\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bbold}{#1}{#2}}{}{}
+\xapptobibmacro{name:delim}{\begingroup\normalfont}{}{}
+
+\xapptobibmacro{name:given-family}{\usebibmacro{name:ebold}{#1}{#2}\endgroup}{}{}
+\xapptobibmacro{name:delim}{\endgroup}{}{}
+
+\newcommand*{\boldnames}{}
+\forcsvlist{\listadd\boldnames}{
+  {8fa031352aa34db95f5c1022358042a3}, % InBold
+  {01b588ba4e4ad753feae6c81709fc04b}} % Highlight
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% OPTIONAL MACRO FILES
+%\usepackage{fltpage}
+%\usepackage{tikz}
+%%%%%%%%%%%%%%%%%%
+%\usepackage{multicol}
+%\usepackage{nag}
+%============ hyperref ===================
+\usepackage[unicode,linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue,%pdfborder={0 0 0}
+]{hyperref}%
+\hypersetup{%
+unicode = true, %
+pdftitle={\Title},%
+pdfauthor={\Author < \Email > - \Institute, \InstituteUMR , \Address - \Website},%
+pdfsubject={\Title}%
+}%
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
+%\hyphenpenalty=5000
+%\tolerance=1000
+%% DOCUMENT LAYOUT
+%\usepackage{geometry}
+%\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+%\setlength\parindent{0in}
+%% ---- MARGIN YEARS
+\newcommand{\years}[1]{\marginpar{\textit{\scriptsize #1}}}
+\providecommand{\natexlab}[1]{#1}
+%\providecommand{\url}[1]{\texttt{#1}}
+%\expandafter\ifx\csname urlstyle\endcsname\relax
+ \providecommand{\doi}[1]{doi: #1}%\else
+%  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+%\makepagestyle{chapter}
+%\makeoddfoot{chapter}{\addRevisionData}{\thepage}{}
+%\makeevenfoot{chapter}{\addRevisionData}{\thepage}{}
+
+%%%%%%%%%%%% Her begynner selve dokumentet %%%%%%%%%%%%%%%
+
+% for units
+\usepackage{siunitx}%
+\newcommand{\ms}{\si{\milli\second}}%
+\newcommand{\m}{\si{\meter}}%
+\newcommand{\s}{\si{\second}}%
+\usepackage{geometry}
+\geometry{hscale=0.66,vscale=0.8,centering}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{center}
+%\vskip 2cm
+\emph{\Large \BookTitle }%
+\vskip 2cm
+{\Huge \Title}
+\vskip 1cm
+{\Large Laurent U~\textsc{Perrinet}}
+\vskip 1cm
+\emph{\Large \SubTitle }\\%
+%\begin{tabular}[t]{ccc}
+%\includegraphics[height=2.5cm]{logo_cnrs-UAM.png} &%\includegraphics[]{}
+%\includegraphics[height=2.5cm]{logo_int.png} %& %
+%%	\includegraphics[height=2.5cm]{U2_logo.pdf}
+%\end{tabular}
+\vskip 1cm
+\includegraphics[width=1.\textwidth]{~/sdrive_cnrs/blog/perrinet_curriculum-vitae.tex/logotypes/troislogos.png}
+
+\vskip 1cm
+\begin{tabular}[t]{|c|}
+\hline
+\Team \\\hline
+\Institute \\ \InstituteUMR \\\hline
+\Address \\\hline
+\url{\Website}\\\hline
+\url{\Email}\\\hline
+\end{tabular}
+\vskip .5cm
+\vfill
+{\large 11 Mars 2026}
+\end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+%%%%%%%%%%%% Endyet daag koepf dokumentet %%%%%%%%%%%%%%%
+
+\section{Curriculum Vit\ae\ }
+\subsection{Présentation rapide}%
+%\subsection{ Curriculum Vit\ae\ : Laurent U Perrinet}%
+%\begin{resume}
+\indent 53 ans, né le 23 Février 1973 à Talence (Gironde, France).  %\\
+
+\begin{itemize}
+\item Directeur de Recherche (DR2, CNRS), Affiliation: \Team\ - \Institute\ (\InstituteUMR)
+\item Adresse: \Address
+\item E-mail: \url{mailto:\Email}
+\item Téléphone: 04 91 32 40 44
+\item URL: \url{\Website}
+\end{itemize}
+
+\subsection*{Bio-sketch}
+Laurent Perrinet est un chercheur en neuroscience 
+spécialisé dans l'exploration de modèles théoriques des mécanismes de la 
+perception visuelle. Il est directeur de recherche CNRS à l'Institut de 
+Neurosciences de la Timone à Marseille. Son axe de recherche vise à 
+comprendre comment les différents fragments de l'information visuelle sont 
+unifiés dans une perception cohérente, malgré les incertitudes intrinsèques 
+à la structure de l'information visuelle. Ces travaux visent à construire 
+des algorithmes bio-inspirés permettant des gains en performance tout en  
+réduisant leur consommation énergétique.
+
+\subsection*{Résumé quantitatif des contributions}
+
+\begin{itemize}
+	
+\item	$63$ publications dans des revues avec comité de lecture dont $4$ en préparation ou en révision, $16$ en premier auteur, $24$ en dernier auteur, avec un total de $4231$ citations, indice h$=30$ (h$=20$ depuis 2021) et indice i10$=61$\footnote{Au 8 Mars 2026, cf.~\url{https://scholar.google.com/citations?user=TVyUV38AAAAJ&hl=fr}},
+\item	$148$ publications dans des actes de congrès avec comité de lecture,
+\item	$4$ livres et $6$ chapitres de livres,
+\item	$77$ conférences invitées avec présentations orales
+ou affichées (dont $21$ dans des congrès internationaux),
+\item \href{https://www.theses.fr/074493701}{Thèses de doctorat}:
+\begin{itemize}
+	\item $2$ en cours en encadrement principal (Alexandre Lainé, Matthis Dallain),
+	\item $3$ en cours co-dirigées (Agathe Choplin, Charlotte Roy, Kevin Mairot),
+	\item $5$ finalisées en encadrement principal~\citep{Khoei14thesis,Boutin20thesis,Franciosini21thesis,Ladret24thesis,Grimaldi24thesis,Jeremie25thesis} soit $3$ dans la période de référence,
+	\item $4$ co-dirigées finalisées~\citep{Kremkow09thesis,Damasse18thesis,MansourPour19thesis,Gruel23thesis},
+	\item rapporteur de $18$ thèses ($7$ dans la période de référence), Président du jury de jury pour $4$ thèses ($3$), Examinateur pour $13$ thèses ($8$).
+\end{itemize} %
+\item $5$ Post-docs dirigés (Wahiba Taouali, Nicole Voges, Alberto Vergani, Adrien Fois, Thomas Kronland-Martinet),
+\item $1$ contrat en PI local ($150$\,k€, contrat total $435$\,k€), 1 AAP ($100$\,k€), $3$ bourses de thèse obtenues,
+\item Participation à $20$ contrats en collaborateur (dont $12$ ANRs).
+
+
+\end{itemize} %
+%
+% \subsection*{Mots clés}
+% Perception, vision, détection du mouvement. Calcul parallèle événementiel, émergence dans les systèmes complexes, codage neural. Inférence Bayesienne, minimisation de l'énergie libre, statistiques des scènes naturelles.
+
+\subsection{Diplômes \& titres universitaires}
+
+%\begin{itemize}
+\textbf{Habilitation à Diriger des Recherches}, AMU, Marseille\hfill \years{\textbf{2017}}\\
+\vspace*{-.15in}
+\begin{itemize}
+\item[] \'Ecole Doctorale Sciences de la Vie et de la Santé, Aix-Marseille Université, France.
+\item[] Sous le titre ``Codage prédictif dans les transformations visuo-motrices'', j'ai défendu mon Habilitation à Diriger des Recherches le 14 avril 2017.
+% \item[] Le jury était constitué des Prof. Laurent Madelain (Université Lille III), Dr. Alain Destexhe (Université Paris XI, Rapporteur), Prof. Gustavo Deco (Universitat Pompeu Fabra, Barcelona, Rapporteur), Dr. Guillaume Masson (Aix-Marseille Université), Dr. Viktor Jirsa (Aix-Marseille Université, Rapporteur) et du Prof. Jean-Louis Mege (Aix-Marseille Université).
+\end{itemize} %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% These %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.3cm}
+	%\item[]
+	\textbf{Doctorat de Sciences cognitives} ONERA/DTIM, Toulouse \hfill \years{\textbf{1999-2003}} \\
+\vspace*{-.15in}
+\begin{itemize}
+\item[] Titre : \emph{Comment déchiffrer le code impulsionnel de la Vision? \'Etude du flux parallèle, asynchrone et épars  dans le traitement visuel ultra-rapide.}  Allocataire d'une bourse MENRT, accueil à  l'ONERA/DTIM.
+% \begin{itemize}
+%\vspace*{.05in}
+		\item % codirection
+		Cette thèse a été initiée par les résultats de la collaboration pendant le stage de DEA. Elle a été dirigée par Manuel Samuelides (professeur à  \textsc{Supaéro} et chargé de recherche à  l'ONERA/DTIM) et co-dirigée par Simon Thorpe (directeur de recherche au \textsc{CerCo})
+		% \item Participation et présentations à  de nombreux colloques internationaux (IJCNN99, NeuroColt00, CNS00, CNS01, LFTNC01, ESANN02, NSI02). Participation aux écoles d'été ``EU Advanced Course in Computational Neuroscience'' à  Trieste (Italie) et ``Telluride Neuromorphic Workshop'' au Colorado (\'Etats-Unis).
+		% \item % + org. dynn / enseignement (supaero trex pir / ensica/ cea) / chap. dynn
+		% En parallèle, j'ai participé à  l'organisation d'une conférence sur les réseaux de neurones dynamiques (\textsc{Dynn}*2000). Je me suis aussi impliqué dans des activités d'enseignement (initiation à  la programmation sous Matlab et théorie de la probabilité) pour des élèves de première et deuxième année d'école d'ingénieur (à  \textsc{Supaéro} et à  l'\textsc{Ensica}, Toulouse) et des travaux dirigés de robotique (Traitement de l'image et reconnaissance d'objets au laboratoire d'Informatique et d'Automatique de \textsc{Supaéro}). %Enfin, je me suis impliqué dans la rédaction d'un chapitre d'un livre
+		\item % soutenance
+		La thèse de doctorat a été soutenue le 7 février 2003 à  l'université Paul Sabatier avec la mention "Très honorable avec les félicitations du jury". Le jury était présidé par Michel Imbert (Prof. Université P. Sabatier) et constitué par Yves Burnod (Directeur de recherche à  l'\textsc{INSERM} U483) et Jeanny Hérault (Professeur à  l'INPG, Grenoble).
+	% \end{itemize} %
+\end{itemize} %
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% dea %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.3cm}
+	%\item[]
+	\textbf{DEA de Sciences cognitives} \hfill \years{\textbf{1998-1999}} \\ Univ. Paris VII, P. Sabatier, EHESS, Polytechnique, mention TB. Allocataire d'une bourse de DEA.
+	%%  (stage fin étude simon / dea paris - petitot / stage cert / 2?/26, mention bien)
+	% \begin{itemize}
+	% 		\item  Assistant de recherche, ONERA/DTIM \years{3/1999-7/1999}(Département de Traitement de l'Image et de Modélisation), Toulouse (stage de DEA).
+	% 		\begin{itemize}
+	% 			\item  \'Etude de l'apprentissage de type Hebbien de réseaux de neurones basés sur un codage par rang.
+	% 			\item  Application à  la reconnaissance de textures visuelles.
+	% 		\end{itemize} %
+	% 		\item Assistant de recherche, USAFB (Rome, NY)  \years{7/1999-8/1999}/ University of San Diego in California (\'Etats-Unis). % https://www.rollingstone.com/music/music-news/19-worst-things-about-woodstock-99-176052/
+	% 		%\begin{itemize}\item
+	% 		\'Etude de l'apprentissage autonome dans un système complexe de type automate cellulaire. %\item Application à  la modélisation du comportement d'un pilote d'avion.\end{itemize} %
+	% \end{itemize} %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% supaero %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.3cm}
+	%\item[]
+	\textbf{Diplôme d'ingénieur {\sc Supaéro}}, Toulouse, France.  \hfill \years{\textbf{1993-1998}}\\
+Spécialisation dans le traitement du signal et de l'image et en particulier dans les techniques des réseaux de neurones artificiels. \\
+% \vspace*{-.1in}
+% 	\begin{itemize}
+% 	 	\item Projets individuels sur la perception visuelle, la reconnaissance de locuteur, la compression de la parole et sur la reconnaissance de caractères.
+% 		\item Ingénieur \textsc{Alcatel}, Vienne (Autriche). \years{9/1995-6/1996} Département du \emph{Voice Processing Systems}. Ce 'stage long' volontaire, intégré à  une formation de \textsc{Supaéro} sur les systèmes industriels, impliquait toutes les étapes de la conception d'un système de messagerie téléphonique de technologie élevée : conception, prototype, contrôle de qualité et étude marketing. %Le stage s'intégrait.
+% 		\item  Assistant de recherche, \textsc{Jet Propulsion Laboratory}  \years{4/1997-9/1997}(\textsc{Nasa}), Pasadena, Californie. Département des Sciences de la Terre, Laboratoire d'imagerie radar, \textsc{Interférométrie radar SAR appliquée à la géophysique}
+% 		\begin{itemize}
+% 			\item Programmation d'un processus de traitement d'images radar interférométriques SAR comprenant des corrections géographiques, une série de filtrages et un traitement d'interférométrie.
+% 			\item \'Etude et programmation d'un générateur de carte topographique.% (DEM).
+% 			\item Traitement des images obtenues pour surveiller la déformation de la croûte terrestre. \'Etude des tremblements de terre de Landers (Californie) et de Gulan (Chine).
+% 		\end{itemize}
+% 		\item Assistant de recherche, \textsc{CerCo}  \years{4/1998-9/1998}(CNRS, UMR5549), Toulouse (stage de fin d'études d'ingénieur). Développement d'un réseau de neurones asynchrone appliqué à  la reconnaissance de caractères.
+% 		\begin{itemize}
+% 			\item Programmation du code du réseau de neurones asynchrones.
+% 			\item \'Etude et utilisation des statistiques non-paramétriques %\citep{Barbe95}
+% pour l'utili\-sation d'un code basé sur le rang d'activation des neurones. \item Implantation d'une nouvelle règle d'apprentissage du réseau de neurones.
+% 		\end{itemize} %
+% 	\end{itemize}
+
+\subsection{Expérience scientifique professionnelle}
+%%%%%%%%%% CNRS %%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.1cm}
+	\textbf{Directeur de Recherche (DR2)} (section CID51), INT/CNRS, Marseille  \years{\textbf{2020-\ldots}} \\
+
+
+	\textbf{Chargé de Recherche Classe Normale}, INT/CNRS, Marseille  \years{\textbf{2019-2020}} \\
+	 % (\emph{sous réserve de financement})
+	 Au 1er janvier 2019, j'ai intégré l'équipe \href{http://www.int.univ-amu.fr/spip.php?page=equipe&equipe=NeOpTo&lang=en}{NeOpTo} de Frédéric Chavane (DR, CNRS). J'implémente les modèles prédictifs dans des architectures bio-mimétiques.
+
+
+	\textbf{Chargé de Recherche grade 1}, INT/CNRS, Marseille  \years{\textbf{2012-2019}} \\
+	 Au 1er janvier 2012, notre équipe a intégré l'\Institute\ (\InstituteUMR\ ) à  Marseille (direction Guillaume Masson). J'ai approfondi les modèles en me concentrant sur un codage probabiliste distribué appliqué à la boucle sensori-motrice.
+
+
+	%\item[]
+\textbf{Mission longue} \years{10/2010-01/2012}  Karl Friston's theoretical neurobiology group (The Wellcome Trust Centre for Neuroimaging, University College London, London, UK). Collaboration avec Karl Friston sur l'application de modèles d'énergie libre aux mouvements oculaires.
+
+	\textbf{Chargé de Recherche grade 2} (section 7), INCM/CNRS, Marseille  \years{\textbf{2004-2012}} \\
+	 Sous la conduite de Guillaume Masson à  l'INCM à  Marseille, j'ai étudié des modèles spatio-temporels d'inférence dans des scènes naturelles en application de la compréhension des mouvements oculaires.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% post-doc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\vspace*{.3cm}
+	%\item[]
+	\textbf{Post-doctorat}, Redwood Neuroscience Institute (RNI), \'Etats-Unis  \years{\textbf{2004}} \\	% San Francisco (
+	 Sous la conduite de Bruno Olshausen, j'ai comparé des modèles standards d'apprentissage avec une méthode originale centrée sur les potentiels d'action. Notamment, j'ai développé une méthode générique évaluant l'importance des processus homéostatiques dans l'apprentissage non-supervisé, qui a conduit à une publication dans le journal Neural Computation (référence A20-\citep{Perrinet10shl}).   J'ai ensuite étendu ce modèle à  l'apprentissage spatio-temporels dans des flux video.
+
+
+%\vspace{.25in}
+\newpage
+
+
+\subsection*{Objectifs de Recherche}
+
+Mon programme de recherche vise à élucider les relations entre structure
+neurale et fonction sensorielle : comment l'organisation topographique des
+neurones et la nature impulsionnelle du signal nerveux permettent-elles aux
+systèmes sensoriels de s'adapter de façon optimale aux statistiques des
+scènes naturelles, par des mécanismes de traitement prédictif ?
+
+Plus précisément, je cherche à formaliser les facultés sensorielles et
+cognitives sous la forme de réseaux de neurones impulsionnels réalisant
+efficacement des algorithmes de perception visuelle. Les potentiels d'action
+--- brèves impulsions se propageant de neurone en neurone --- constituent en
+effet une caractéristique universelle des systèmes nerveux et offrent un
+substrat naturel pour modéliser le traitement dynamique de l'information.
+Sur le plan fonctionnel, j'intègre dans ces modèles des stratégies
+d'inférence reposant sur des mécanismes d'apprentissage auto-organisés, qui
+ancrent les relations spatio-temporelles entre neurones. Sur le plan
+applicatif, ces travaux ouvrent la voie à de nouveaux algorithmes
+neuromorphiques à haute efficacité énergétique.
+
+\subsection*{Résumé des travaux antérieurs et de leur impact scientifique}
+
+Mes travaux de thèse dirigés par Simon Thorpe et Manuel Samuelides ont permis d'explorer dans un cadre mathématique de nouveaux paradigmes de codage neural impulsionnel pour des images statiques~\citep{Perrinet03ieee}, et en particulier comment ceux-ci peuvent être appris par des règles hebbiennes parcimonieuses~\citep{Perrinet10shl}. Ces travaux ont été étendus en collaboration avec Guillaume Masson à des modèles d'inférence statistique appliqués aux mouvements des yeux et à la boucle perception--action~\citep{Simoncini12}. Un cadre théorique précis a ensuite été développé en collaboration avec Karl Friston pour intégrer les délais temporels dans les modèles prédictifs~\citep{PerrinetAdamsFriston14}.
+
+Plus récemment, j'ai étendu ces modèles au traitement dynamique de scènes visuelles en mouvement~\citep{KhoeiMassonPerrinet17}, puis à des architectures hiérarchiques bio-inspirées~\citep{BoutinFranciosiniChavaneRuffierPerrinet20,Franciosini21}. Ces travaux ont notamment permis de revisiter  en collaboration avec Frédéric Chavane la structure de la connectivité horizontale dans le cortex visuel primaire~\citep{Chavane22}. Nous avons par ailleurs mis en évidence le rôle de la précision sensorielle dans le traitement de l'information corticale~\citep{Ladret23}, ouvrant la voie à une représentation parcimonieuse plus efficace des images naturelles~\citep{Ladret24sparse}.
+
+Ces avancées nous ont permis de concevoir de nouveaux algorithmes neuromorphiques de type réseaux de neurones impulsionnels (SNN), capables d'une reconnaissance robuste et ultra-rapide fondée sur la détection de motifs spatio-temporels de spikes~\citep{Grimaldi24}. En parallèle, l'intégration d'une rétinotopie fovéale dans des architectures de vision bio-inspirées améliore significativement la localisation et la catégorisation d'objets dans des conditions écologiques~\citep{Jeremie25}, y compris pour des tâches de recherche visuelle active~\citep{Jeremie25thesis}. Enfin, des collaborations récentes ont étendu le cadre du codage prédictif à la prévision de séries temporelles~\citep{Gunasekaran25} et à la modélisation de textures dynamiques naturelles~\citep{Meso25}, illustrant la portée transversale de ces approches.
+
+
+
+\subsection*{Mots clés}
+Perception, vision, détection du mouvement. Calcul parallèle événementiel, émergence dans les systèmes complexes, codage neural, réseaux de neurones impulsionnels. Inférence Bayesienne, minimisation de l'énergie libre, statistiques des scènes naturelles.
+
+\newpage
+\section{Rapport d’activité sur la période de décembre 2016 à décembre 2021} %{\small(journaux à  comité de lecture)}}
+
+% \input{activité}
+
+\newpage
+\subsection{Productions scientifiques sélectionnées}
+
+Je présente ici un choix de 10 productions scientifiques pour les 10 derniers
+semestres d’activité. Les codes dans la marge correspondent à ceux utilisés dans la \href{https://raw.githubusercontent.com/laurentperrinet/perrinet_curriculum-vitae.tex/master/perrinet_publications.pdf}{liste complète des publications}.
+
+% TODO \input{publications}
+
+\newpage
+\section{Enseignement, formation et diffusion de la culture scientifique} %{\small(journaux à  comité de lecture)}}
+
+\subsection{Encadrement de thèse et post-doctorants} %
+
+Cette section résume les encadrements de \href{https://www.theses.fr/074493701}{thèses de doctorat}:
+
+Actuellement, j'ai l'occasion d'encadrer cinq doctorants %et un post doctorant
+en tant qu'encadrant principal ou en co-supervision:
+
+\begin{itemize}
+	\item \href{https://laurentperrinet.github.io/author/alexandre-lain%C3%A9/}{Alexandre Lainé} ``Model-based analysis of neurobiological data'' (PhD, bourse école doctorale, 10/2024-09/2027, en co-direction avec Sophie Deneve, INT)
+	\item \href{https://laurentperrinet.github.io/author/matthis-dallain/}{Matthis Dallain} ``Focus of attention: a sensory-motor task for energy reduction in spiking neural networks.'' (PhD, 10/2024-09/2027, en co-direction avec Benoît Miramond et Laurent Rodriguez, LEAT)
+	\item \href{https://laurentperrinet.github.io/author/kevin-mairot/}{Kevin Mairot} ``L’intelligence artificielle comme aide au diagnostic des dystrophies rétiniennes'' (PhD, bourse de médecine, 10/2023-09/2027)
+	\item En co-supervision : \href{https://laurentperrinet.github.io/author/agathe-choplin/}{Agathe Choplin} ``Characterization of Physiological States using Machine Learning'' (PhD, 10/2024-09/2027)
+	\item En co-supervision :\href{https://laurentperrinet.github.io/author/charlotte-roy/}{Charlotte Roy} ``Impact de l'incarnation dans un avatar sur le bien-être et la prise de décision dans le Métaverse'' (PhD, 10/2024-09/2027, en co-supervision avec Olivia Petit, KEDGE)
+\end{itemize}
+
+
+Précédemment, j'ai eu l'occasion d'encadrer des étudiants en direction de thèse, en post-doctorat ou en co-direction de thèse :
+\begin{itemize}
+	\item \href{https://laurentperrinet.github.io/author/jean-nicolas-jeremie/}{Jean-Nicolas Jérémie} ``Foveal Retinotopy and Dual Pathways: A Computational Model for Active Visual Search''~\textcite{Jeremie25thesis} (PhD, bourse AgileNeuRobot (ANR-20-CE23-0021), 10/2021-09/2025)
+	\item \href{https://laurentperrinet.github.io/author/thomas-kronland-martinet/}{Thomas Kronland-Martinet} ``Ultra-fast processing of sensor inputs acquired by an event camera'' (Post-doc, bourse AgileNeuRobot (ANR-20-CE23-0021), 01/2025-07/2025)
+	\item \href{https://laurentperrinet.github.io/author/adrien-fois/}{Adrien Fois} ``Accurate detection of precise spiking motifs in neurobiological data'' (Post-doc, bourse Polychronies grant (AMX-21-RID-025), 09/2023-03/2025)
+	\item \href{https://laurentperrinet.github.io/author/antoine-grimaldi/}{Antoine Grimaldi} ``Ultra-fast vision using Spiking Neural Networks'' (PhD, APROVIS3D grant~\textcite{Grimaldi24thesis} (ANR-19-CHR3-0008-03), 2020 / 2023)
+	\item \href{https://laurentperrinet.github.io/author/amélie-gruel/}{Amélie Gruel} ``Design of bio-inspired spiking neural networks (spiking neurons) for event-based stereovision'' (PhD, APROVIS3D grant~\textcite{Gruel23thesis} (ANR-19-CHR3-0008-03), 2020 / 2023)
+	\item \href{https://laurentperrinet.github.io/author/hugo-ladret/}{Hugo Ladret} ``A multiscale cortical model to account for orientation selectivity in natural-like stimulations''~\textcite{Ladret24thesis}  (direction, bourse AMU, co-direction avec Christian Casanova, en cotutelle avec l'Université de Montréal, 2019 / 2023)
+	% \item \href{https://laurentperrinet.github.io/author/alberto-arturo-vergani/}{Alberto Arturo Vergani} 	``Visual computations using Spatio-temporal Diffusion Kernels and Traveling Waves'' (Post-Doc, 04/2020 - 09/2021)
+	% \item \href{https://laurentperrinet.github.io/author/victor-boutin/}{Victor Boutin} 	``Controlling an aerial robot by human semaphore gestures using a bio-inspired neural network''~\textcite{Boutin20thesis} (PhD, bourse AMIDEX, 12/2016-03/2020)
+	% \item \href{https://laurentperrinet.github.io/author/angelo-franciosini/}{Angelo Franciosini} ``Trajectories in natural images and the sensory processing of contours''~\textcite{Franciosini21thesis} (PhD, bourse PhD program, 2017 / 2021)
+	% \item \href{https://laurentperrinet.github.io/author/kiana-mansour-pour/}{Kiana Mansour Pour} 	``Predicting and selecting sensory events: inference for smooth eye movements''~\citep{MansourPour19thesis} (PhD, 2015 - 2018)
+	% \item \href{https://laurentperrinet.github.io/author/jean-bernard-damasse/}{Jean-Bernard Damasse} 	``Smooth pursuit eye movements and learning: Role of motion probability and reinforcement contingencies''~\citep{Damasse18thesis} (PhD, 2014-2017)
+	% \item \href{https://laurentperrinet.github.io/author/mina-a-khoei/}{Mina A Khoei} 	``Emerging properties in a neural field model implementing probabilistic prediction''~\textcite{Khoei14thesis} (PhD, 2011-2014)
+	% \item \href{https://laurentperrinet.github.io/author/wahiba-taouali/}{Wahiba Taouali} 	``Motion Integration By V1 Population'' (Post-Doc, 2013-2015)
+	% \item \href{https://laurentperrinet.github.io/author/nicole-voges/}{Nicole Voges} 	``Complex dynamics in recurrent cortical networks based on spatially realistic connectivities'' (Post-Doc, 2008-2010)
+	% \item \href{https://laurentperrinet.github.io/author/jens-kremkow/}{Jens Kremkow} ``Correlating Excitation and Inhibition in Visual Cortical Circuits: Functional Consequences and Biological Feasibility''~\citep{Kremkow09thesis} (PhD, 2006-2009)
+%	\item David Arbib 	OBV1: Sélectivité à l'orientation dans le cortex visuel primaire. (master student, 2016-01 / 2016-06)
+%	\item Jean Spezia 	developing MotionClouds (undergrad, 2014-09 / 2014-12)
+\end{itemize}
+
+
+\subsection{Participation à des jurys de thèse dans la période de référence} %
+
+\begin{itemize}
+
+    % \item ``Amélioration de l'apprentissage dans les réseaux de neurones impulsionnels'' par Ilyass Hammouamri sous la direction de Timothée Masquelier au CERCO - Centre de Recherche Cerveau et Cognition (Toulouse), soutenue en Octobre 2025,
+
+    % \item ``Apprentissage supervisé efficace pour les réseaux de neurones impulsionnels à codage temporel'' par Gaspard Goupy sous la direction de Ioan Marius Bilasco et Pierre Tirilly  dans l'équipe FOX du laboratoire CRIStAL (Lille), soutenue en Octobre 2025,
+
+    \item ``Méthodes d'apprentissage profond inspirées par la physique pour l'inférence de la qualité de l'air'' par Matthieu Dabrowski sous la direction de Chaabane Djeraba, Jérôme Riedi et José Mennesson - Informatique et applications - Université de Lille, Soutenue en 2024,
+
+    \item ``Avancées en vision neuromorphique : représentation événementielle, réseaux de neurones impulsionnels supervisés et pré-entraînement auto-supervisé'' par Sami Barchid sous la direction de Chaabane Djeraba - Informatique et applications - Université de Lille, Soutenue en 2023,
+
+    \item ``Co-simulation de modèles de circuits neuronaux à macro- et méso-échelle : une technologie en avance sur son temps'' par Lionel Kusch sous la direction de Viktor K. Jirsa --- Neurosciences, Aix-Marseille Université, soutenue en 2023 (Président du jury),
+
+    \item ``Autonomous learning in a neuromorphic vision system : an active efficient coding spiking model applied to vision'' par Thomas Barbier sous la direction de Jochen Triesch - Informatique - Université Clermont Auvergne, Soutenue en 2023  (Examinateur),
+
+    \item ``Approches neuro-robotique intégrées pour la localisation et la navigation d'un véhicule autonome'' par Sylvain Colomer sous la direction de Olivier Romain - STIC (Sciences et Technologies de l'Information et de la Communication) - ED EM2PSI - CY Cergy Paris Université, Soutenue en 2022,
+
+    \item ``Theoretical framework for Time-To-First-Spike coding in Spiking Neural Networks'' par Lina del Pilar Bonilla Camelo sous la direction de Timothée Masquelier - Image, Information, Hypermédia - Toulouse 3, Soutenue en 2022 (Président du jury),
+
+	\item ``Codage prédictif dans le cerveau et les réseaux de neurones profonds'' 	par Zhaoyang Pang sous la direction de Rufin VanRullen - Toulouse 3 (Neurosciences), Soutenue le 28-02-2022,
+
+    \item ``Deep learning and neuroscience : a match made in heaven?'' par Bhavin Yogesh Choksi sous la direction de Leila Reddy et Rufin VanRullen --- Neurosciences, Toulouse 3, soutenue en 2022 (Président du jury),
+
+	\item ``Extraction d'informations spatio-temporelles du mouvement avec un réseau de neurones à spike : application sur une tâche de prédiction de trajectoire de balles'' par Guillaume Debat sous la direction de Robin Baurès et de Michel Paindavoine - Toulouse 3  (Neurosciences) 	Soutenue le 17-12-2021,
+
+	\item ``Fully event-based motion estimation of neuromorphic binocular systems'' par Laurent Dardelet sous la direction de Sio-Hoï Ieng et de Ryad Benosman - Sorbonne université (Ingénierie) Soutenue le 15-12-2021,
+
+	% \item ``Precise timing and computationally efficient learning in neuromorphic systems'' par Omar Oubari sous la direction de Ryad Benosman et Sio-Hoï Ieng --- Ingénierie neuromorphique, Sorbonne Université, soutenue en 2020 (Président du jury).
+
+	% \item ``Principes computationnels génériques et spécifiques à l’anticipation visuelle du mouvement'' par Selma Souihel sous la direction de Bruno Cessac - Université Côte d'Azur (Informatique) Soutenue le 18-12-2019,
+
+	% \item ``Adaptation saccadique : un modèle d’apprentissage opérant et ses contraintes biologiques'' par Sohir Rahmouni sous la direction de Laurent Madelain - Université de Lille (2018-2021) Soutenue le 13-12-2019,
+
+	% \item ``Apport des dispositifs de restauration de la vision et de la résolution temporelle''  par Mylène Poujade sous la direction de Ryad Benosman - Sorbonne université	(Neurosciences) 	Soutenue le 25-09-2019,
+
+	% \item ``Implémentation multi-niveaux de modèles hiérarchiques neuronaux'' par Kévin Géhère sous la direction de Ryad Benosman - Sorbonne université 	(Sciences de l'ingénieur) Soutenue le 14-12-2018,
+
+	% \item ``Lateral connectivity : propagation of network belief and hallucinatory-like states in the primary visual cortex'' par Benoît Le Bec sous la direction de Yves Frégnac et de Marc Pananceau - Sorbonne université (Neuroscience cognitive) Soutenue le 03-12-2018,
+
+	% \item ``Development and validation of stimulation strategies for the optogenetics'' par Quentin Sabatier sous la direction de Ryad Benosman - Sorbonne université (Robotique) Soutenue le 07-05-2018,
+
+	% \item ``Event-based detection and tracking'' par David Reverter Valeiras sous la direction de Ryad Benosman et de Sio-Hoï Ieng - Paris 6	(Robotique)	Soutenue le 18-09-2017,
+
+	% \item ``Compression d'images et de vidéos inspirée du fonctionnement de la rétine''	par Effrosyni Doutsi sous la direction de Lionel Fillatre et de Marc Antonini - Université Côte d'Azur	(Automatique, traitement du signal et des images) 	Soutenue le 22-03-2017,
+
+	% \item ``From adaptation mechanisms with visual impairment to new technologies in vision restoration'' par Sihem Kime sous la direction de Ryad Benosman et de Xavier Clady - Paris (Ingénierie) Soutenue le 20-06-2016,
+
+	% \item ``On salience and non-accidentalness : comparing human vision to a contrario algorithms''  par Samy Blusseau sous la direction de Jean-Michel Morel - Cachan, Ecole normale supérieure (Mathématiques) Soutenue le 22-09-2015 (Examinateur).
+\end{itemize} %
+	
+
+\subsection{Participation à des activités grand public} %
+
+Je participe ou initie de nombreuses rencontres avec le grand public (cf. \url{https://laurentperrinet.github.io/project/tout-public/}) et récemment:
+
+\begin{itemize}
+
+	\item Article de dissemination sur le \href{https://laurentperrinet.github.io/publication/perrinet-21-hasard/}{hasard} dans ``The conversation'' ($6200$ lectures au 16 Février 2022).
+
+	\item Participation à une présentation ``stand up'' des NeuroStories : conférence invitée  ``\href{https://laurentperrinet.github.io/post/2019-10-07_neurostories/}{Le temps des sens}''.
+
+	\item Article de dissemination sur le \href{https://laurentperrinet.github.io/publication/perrinet-19-temps/}{temps dans la perception} dans ``The conversation'' ($11600$ lectures au 16 Février 2022).
+
+	\item Participation à des activités de dissémination aux des Journées de Neurologie de Langue Française (JNLF) : conférence invitée  ``\href{https://laurentperrinet.github.io/talk/2019-04-18-jnlf/}{Des illusions aux hallucinations visuelles: une porte sur la perception}".
+
+	\item Article de dissemination sur les \href{https://theconversation.com/illusions-et-hallucinations-visuelles-une-porte-sur-la-perception-117389}{illusions visuelles} dans ``The conversation'' ($12500$ lectures au 16 Février 2022).
+
+	\item Participation à des activités grand public: \href{https://laurentperrinet.github.io/talk/2019-01-10-polly-maggoo/}{Rencontre avec les collégiens marseillais}, \href{https://laurentperrinet.github.io/talk/2018-10-10-polly-maggoo/}{fête de la science}, participation à un jury autour de \href{https://laurentperrinet.github.io/talk/2017-11-17-festival-interferences/}{la société, la science et le cinéma}.
+
+
+	%
+%	\item Participation à des activités grand public: conférence invitée\years{2016} ``Les illusions visuelles, un révélateur du fonctionnement de notre cerveau" \url{2016-04-25_PollyMaggoo}.
+%
+%	\item Séminaires d'ouverture aux neurosciences pour des mathématiciens \years{2016} (école du CIRM EDP et probas)  \url{2016-07-07_EDP-proba}.
+%
+%	\item Rencontres \years{2015-2016} en milieu scolaire avec l'association Polly Maggoo  (voir par exemple \url{2016-04-25_PollyMaggoo}).
+%
+%	\item Rencontres Internationales Sciences \& Cinémas\years{2015-2016} intervention en tant que scientifique (voir \url{2016-11-20_PollyMaggoo }).
+
+\end{itemize}
+
+
+
+\subsection{Collaboration artistique} %
+%\item  Projet artistique en collaboration avec Etienne Rey (artiste plasticien à la friche Belle de Mai) :
+
+En parallèle avec les actions grand public, je développe une collaboration active avec un artiste plasticien, \href{https://laurentperrinet.github.io/authors/etienne-rey/}{Etienne Rey} (friche Belle de Mai, Marseille, voir~\url{https://laurentperrinet.github.io/project/art-science/}). Nous avons produit plusieurs actions, entre autres:
+
+\begin{itemize}
+	\item ``\href{https://laurentperrinet.github.io/post/2021-10-04_interstices/}{Horizon Faille}'' – interstices, à Caen\years{2021},
+	\item ``\href{https://laurentperrinet.github.io/post/2019-06-22_ardemone/}{Sans gravité – une poétique de l’air}'' – Ardenome à Avignon\years{2019},
+	\item ``\href{https://laurentperrinet.github.io/post/2018-09-09_artorama/}{Instabilité (series)}''\years{2018} @ Art-O-Rama, Installation avec sérigraphie, dessin mural, lumière,
+%	\item \href{https://laurentperrinet.github.io/talk/2018-01-25-meetup-neuronautes/}{Meetup Art et Neurosciences} : conférence avec des étudiants de neurosciences.
+	\item projet ``\href{https://laurentperrinet.github.io/post/2018-04-10_trames/}{TRAMES}'' présentation à la Fondation Vasarely (Aix)\years{2016},
+	% \item projet ``\href{https://laurentperrinet.github.io/post/2016-06-02_elasticite/}{ELASTICITE}''\years{2015} présentation à la Fondation Vasarely (Aix), au 104 (Paris),
+	% \item projet ``\href{https://laurentperrinet.github.io/post/2013-10-10_tropique/}{TROPIQUE}'', label "Marseille-Provence capitale européenne de la culture 2013" Conseil scientifique : Collaboration artistique avec\years{2011-2013} le plasticien \'Etienne Rey en préparation de Marseille MPM capitale de la culture européenne 2013. Résidence à l'IMERA (Marseille), présentation aux festivals d'Enghien-les-bains et Ososphère (Strasbourg). Organisation de l'installation \years{Juin 2013}de l'\oe uvre sur le site de l'INT. Exposition de l'installation à la fondation\years{Octobre 2013} Vasarely (Aix-en-Provence).
+\end{itemize}
+
+
+\subsection{Enseignement} %
+
+Cours magistraux de Neurosciences Computationnelles en  troisième année de licence Sciences et Humanités\years{2019} et dans le cadre du  \href{https://laurentperrinet.github.io/post/2018-03-26-cours-neuro-comp-fep/}{programme de thèse Marseillais en Neurosciences}\years{2018}.
+
+\begin{itemize}
+	\item An introduction to the field of Computational Neuroscience ,
+	\item Probabilities, the Free-energy principle and Active Inference.
+\end{itemize}
+
+
+J'ai récemment pris part à une école d'été organisée en janvier 2019 par le centre de neurosciences computationnelles de Valparaiso au Chili. Les thèmes abordés au cours de cette école étaient:
+\begin{itemize}
+	\item \href{https://laurentperrinet.github.io/talk/2019-01-18-laconeu/}{adaptation comportementale},
+	\item \href{https://laurentperrinet.github.io/talk/2019-01-17-laconeu/}{compensation des délais},
+	\item \href{https://laurentperrinet.github.io/talk/2019-01-16-laconeu/}{modélisation Bayesienne},
+	\item \href{https://laurentperrinet.github.io/talk/2019-01-14-laconeu/}{tutoriel modélisation de réseaux à spikes}.
+
+\end{itemize}
+
+%
+% Cours magistraux de Neurosciences Computationnelles \years{2015} dans le cadre du programme de thèse Marseillais en Neurosciences \url{http://2015-12-08_cours-NeuroComp}. Ces cours seront renouvelés en 2017.
+%
+% \begin{itemize}
+% 	\item An introduction to the field of Computational Neuroscience ,
+% 	\item Decoding of feature selectivity in neural activity: Concrete applications in visual data
+% \end{itemize}
+%
+%
+% J'ai aussi pris par récemment à une école d'été organisée par le centre de neurosciences computationnelles de Valparaiso au Chili. Les thèmes abordés au cours de cette école étaient:
+% \begin{itemize}
+% 	\item compensation des délais \url{2017-01-18_LACONEU},
+% 	\item codage des images \url{2017-01-19_LACONEU}
+% 	\item modélisation Bayesienne \url{2017-01-20_LACONEU}
+%
+% \end{itemize}
+
+\section{Transfert technologique, relations industrielles et valorisation} %
+%Vous présenterez, pour les 5 ou 10 derniers semestres :
+%vos participations à des contrats de recherche : contrats ANR, contrats européens (indiquer l?intitulé long, l?acronyme ou le sigle, la durée et les partenaires financeurs), contrats industriels, autres... (préciser votre rôle, les partenaires et les montants, le thème et le contenu des travaux, leur portée et leur impact) ;
+%vos participations à des projets de créations d?entreprises ;
+%vos participations à des travaux donnant lieu à des dépôts de brevets ou à des développements de logiciels (préciser votre rôle, décrire le contenu des travaux, les difficultés rencontrées et surmontées, l?impact des brevets ou logiciels) ;
+
+
+\subsection{Contrats et collaborations} %
+Au cours de 10 derniers semestres, j'ai eu l'occasion de collaborer sur plusieurs contrats de niveau national (ANR) et international (cf~\url{https://laurentperrinet.github.io/#grants}):
+
+
+Actuellement, je suis impliqué dans les contrats suivants
+\begin{itemize}
+\item soit à titre d'investigateur principal :
+\begin{itemize}
+	\item  \href{https://laurentperrinet.github.io/grant/anr-anr/}{ANR AgileNeuroBot} (Co-ordinateur principal): ``Robots aériens agiles bio-mimetiques pour le vol en conditions réelles'' (2021/2024)
+	\item  \href{https://laurentperrinet.github.io/grant/aprovis-3-d/}{APROVIS3D}: ``Aprovis3D: Event-Based Artificial Inteligence'' (2019--2023, coordination globale du projet par Jean Martinet, université de Nice).
+ 	\item \href{https://laurentperrinet.github.io/grant/anr-priosens/}{ANR PRIOSENS} (2021/2024): ``Modelling behavioural and neuronal data within the active inference framework'' avec Anna Montagnini,
+\end{itemize}
+\item soit à titre de collaborateur :
+
+\begin{itemize}
+ \item \href{https://laurentperrinet.github.io/grant/anr-shootingstar/}{ANR ShootingStar} (2021/2024) avec Frédéric Chavane,
+ \item \href{https://laurentperrinet.github.io/grant/anr-aces/}{ANR ACES} (2021/2024): ``CAssignment of credit and constraints on eye movement learning'' avec Anna Montagnini,
+ \item \href{https://laurentperrinet.github.io/grant/anr-predicteye/}{ANR RubinVase} (2021/2024) avec \href{https://scholar.google.com/citations?user=22p8Wc4AAAAJ}{Dario Prandi} et \href{https://scholar.google.com/citations?user=dRVPKmkAAAAJ}{Luca Calatroni}.
+\end{itemize}
+
+
+\end{itemize}
+
+Précédemment, j'ai eu l'occasion de collaborer sur les contrats suivants durant cette période :
+\begin{itemize}
+	\item  \href{https://laurentperrinet.github.io/grant/doc-2-amu/}{PhD DOC2AMU}: An Excellence Fellowship, H2020 (Excellence Scientifique) : Actions Marie Sklodowska-Curie (IF, ITN, RISE, COFUND) (2016--2019)
+	\item \href{https://laurentperrinet.github.io/grant/phd-icn/}{PhD ICN} A grant from the Ph.D. program in Integrative and Clinical Neuroscience (PhD position, 2017 / 2021).
+	\item  \href{https://laurentperrinet.github.io/grant/spikeai/}{SpikeAI}: laureat du Défi Biomimétisme (2019) ``Algorithmes événementiels d’Intelligence Artificielle / Event-Based Artificial Inteligence'' (2019).
+	 \item \href{https://laurentperrinet.github.io/grant/anr-horizontal-v1/}{ANR Horizontal-V1} (2017--2021): ``Connectivité Horizontale et Prédiction de Cohérences dans l’Intégration de Contour'' avec Yves Fregnac et Frédéric Chavane,
+	%  \item \href{https://laurentperrinet.github.io/grant/anr-causal/}{ANR CausaL} (2017--2021): ``Cognitive Architectures of  Causal  Learning'' avec Andrea Brovelli,
+	%  \item \href{https://laurentperrinet.github.io/grant/anr-predicteye/}{ANR PredictEye} (2018--2022) : ``Mapping and predicting trajectories for eye movements'', avec Guillaume Masson.
+	% \item \href{https://laurentperrinet.github.io/grant/pace-itn/}{PACE-ITN}: ITN Marie Curie network (2015--2019) avec Anna Montagnini.
+	% \item \href{https://laurentperrinet.github.io/grant/anr-bala-v1/}{ANR BalaV1}: Balanced states in area V1 (2013--2016) avec Frédéric Chavane,
+	% \item \href{https://laurentperrinet.github.io/grant/anr-rem/}{ANR REM} : Renforcement et mouvements oculaires (2013--2016) avec Anna Montagnini,
+	% \item \href{https://laurentperrinet.github.io/grant/anr-speed/}{ANR SPEED}: Traitement de la vitesse dans les scènes visuelles naturelles (2013--2016)  avec Guillaume Masson,
+	% \item \href{https://laurentperrinet.github.io/grant/anr-trajectory/}{ANR TRAJECTORY} (2016--2019) avec Frédéric Chavane,
+	% \item  \href{https://laurentperrinet.github.io/grant/brain-scales/}{BrainScaleS}: Brain-inspired multiscale computation in neuromorphic hybrid systems (2011-2014) avec Guillaume Masson,
+	% \item \href{https://laurentperrinet.github.io/grant/codde/}{CODDE}: understanding brain and behaviour (2008--2012) avec Guillaume Masson,
+	% \item \href{https://laurentperrinet.github.io/grant/facets-itn/}{FACETS-ITN}: From Neuroscience to neuro-inspired computing (2010--2013) avec Guillaume Masson,
+	% \item \href{https://laurentperrinet.github.io/grant/facets/}{FACETS}: Fast Analog Computing with Emergent Transient States (2006--2010) avec Guillaume Masson.
+\end{itemize}
+
+
+\subsection{Développements de logiciels} %
+
+Nous développons plusieurs lignes de recherche pour appliquer nos résultats à des problèmes concrets, sous forme de logiciels \href{https://laurentperrinet.github.io/project/open-science/}{open source}:
+
+% \subsubsection{Mouvements des yeux et mouvement} %
+\begin{itemize}
+
+	\item \href{https://github.com/invibe/AnEMo}{AnEMo} : traitement du signal pour l'analyse des mouvements des yeux~\citep{Pasturel18anemo},
+	\item \href{http://github.com/NeuralEnsemble/MotionClouds}{MotionClouds}: génération de textures pour la perception du mouvement~\citep{Sanz12,Vacher15nips,Vacher16},
+	% \item \href{https://github.com/laurentperrinet/LeCheapEyeTracker}{LeCheapEyeTracker} -- \url{https://github.com/laurentperrinet/CatchTheEye} : Oculomètre minimal utilisant l'apprentissage profond;
+\end{itemize}
+
+
+
+% \subsubsection{Biologically-Inspired Computer Vision} %
+% \begin{itemize}
+% 	\item \href{https://github.com/laurentperrinet/openRetina}{openRetina}: caméra événementielle minimale,
+% %	\item  collaboration avec Gabriel Crist\'obal (CSIC, Madrid), par exemple pour la classification d'emphysèmes~\citep{Nava13} % avec "Rodrigo Nava, J. Victor Marcos, Boris Escalante-Ram\'\irez, Gabriel Crist\'obal, Laurent U Perrinet, Ra\'ul S. J. Estépar. Advances in Texture Analysis for Emphysema Classification. 8259:214--221, 2013"
+% %	\item  collaboration avec I3S (Sophia-Antipolis) pour la classification d'images industrielles en suivant la méthodolgie développée dans~\citep{PerrinetBednar15},
+% 	\item \href{http://github.com/bicv/SparseHebbianLearning }{SparseHebbianLearning }: apprentissage non-supervisé d'images naturelles~\citep{Perrinet10shl,Perrinet19hulk},
+% 	\item \href{http://github.com/bicv/SLIP}{Simple Library for Image Processing}: techniques de traitement de l'image, utilisé notamment dans~\citep{Perrinet15bicv,Ravello16droplets,PerrinetBednar15,Perrinet15eusipco,Perrinet16EUVIP},
+% 	\item \href{http://github.com/bicv/LogGabor}{LogGabor}: représentations multi-échelles des contours~\citep{Fischer07,Fischer07cv},
+% 	\item \href{http://github.com/bicv/SparseEdges}{SparseEdges}: codage épars (parcimonieux) d'images naturelles~\citep{Perrinet15bicv,PerrinetBednar15},
+% 	\item \href{https://github.com/laurentperrinet/Khoei_2017_PLoSCB}{MotionParticles}: prédiction dynamique par filtrage particulaire (permet de reproduire~\citep{Perrinet12pred,Khoei13jpp,KhoeiMassonPerrinet17}).
+% \end{itemize}
+
+\subsubsection{Promotion du logiciel libre} %
+Je participe à différentes initiatives afin de promouvoir les pratiques du logiciel libre
+\begin{itemize}
+	\item écriture régulière d'un \href{https://laurentperrinet.github.io/sciblog/}{blog scientifique},
+	\item participation à des réseaux sociaux à des fins de dissémination comme \href{https://twitter.com/laurentperrinet}{twitter}, \href{https://stackoverflow.com/users/234547/meduz}{stackOverflow}, \href{https://www.instagram.com/laurentperrinet/}{instagram} ou \href{https://github.com/laurentperrinet}{gitHub}.
+\end{itemize}
+
+
+
+\section{Encadrement, animation et management de la recherche}
+
+%Vous présenterez, pour les 5 ou 10 derniers semestres :
+%vos responsabilités dans l?animation de programmes ou projets français, européens ou internationaux (préciser le type de programme ou de projet, son ampleur et son impact, et décrire votre rôle) ;
+%vos responsabilités et vos activités de direction d?équipe ou de laboratoire (préciser le nombre de personnes) ;
+%vos autres responsabilités ou activités collectives au sein du CNRS ou plus largement (management de la recherche, fonctions ou missions d?intérêt général, participation à des conseils scientifiques et autres commissions, participation à des comités de lecture, etc.) ;
+%autres.
+
+
+\begin{itemize}
+	
+	\item Co-animation du \og \textit{Computational Neuroscience Center} (\href{https://conect-int.github.io/}{CONECT}) \fg{}, incubateur au sein de l’INT pour promouvoir la neuroscience théorique et computationnelle.
+	
+    \item \textbf{Responsabilités ou activités collectives au CNRS} : De Janvier 2022 à Juin 2025, j'ai été nommé à la commission interdisciplinaire \og Modélisation mathématique, informatique et physique pour les sciences du vivant \fg{} (CID51) lors du dernier mandat.
+	
+	\item En Novembre 2024, co-oganisation de la conférence internationale \href{https://laurentperrinet.github.io/post/2024-11-08-snufa/}{SNUFA} "Spiking Neural networks as Universal Function Approximators".
+\end{itemize}
+
+\subsection{Expertise scientifique} %
+
+
+Outre ces responsabilités scientifiques, je participe à l'animation scientifique sous d'autres formes. Tout d'abord pour l'évaluation de la recherche par les chercheurs en tant que membre d'un comité éditorial ou en temps que relecteur. Je développe aussi des collaborations internationales et en même temps dans la vie sociale de l'organisme:
+
+\begin{itemize}
+	\item \href{https://orcid.org/my-orcid?orcid=0000-0002-9536-010X}{Rôle de relecteur} pour 31 articles dans des journaux internationaux à comité de relecture : Cell Reports, Nature Human Behaviour, Neuroscience and Biobehavioral Reviews, PLOS ONE, iScience, PLoS CB, PLoS Biology, Vision Research.
+
+	\item jury pour de nombreuses bourses internationales (Belgique, Pays-Bas, Australie, Canada, États-Unis).
+
+	% \item en 2019-2020 : missions d'expertise scientifique avec Arnaud Malvache à \href{https://unistellaroptics.com/}{Unistellar}, Marseille.
+
+	% \item 2019-2020 : missions d'expertise scientifique en collaboration avec Sid Kouider à \href{https://www.next-mind.com/}{NextMind}, Paris.
+\end{itemize}
+
+\newpage
+\section{Objectifs / Projet de recherche de janvier 2022 à janvier 2027}
+
+% \input{objectifs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\printbibliography
+\end{document} %
