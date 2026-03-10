@@ -1,3 +1,263 @@
+
+
+
+
+
+
+
+%! TEX program = lualatex
+%! TEX encoding = UTF-8 Unicode
+%! TeX spellcheck = fr-FR
+% -*- coding: UTF-8; -*-
+%
+\documentclass[11pt,french,a4paper,oneside]{article}
+\usepackage[official]{eurosym}
+\usepackage[french]{babel}
+\usepackage{csquotes}
+\usepackage[final]{pdfpages}
+\usepackage{microtype}
+\usepackage{amsmath,amsfonts}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, hscale=0.72, vscale=0.82, centering}
+\usepackage[unicode,linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue]{hyperref}
+
+\newcommand{\Author}{Laurent Udo Perrinet}
+\newcommand{\Institute}{Institut de Neurosciences de la Timone}
+\newcommand{\InstituteUMR}{UMR 7289, CNRS / Aix-Marseille Université}
+\newcommand{\Address}{27, Bd. Jean Moulin, 13385 Marseille Cedex 5, France}
+\newcommand{\Website}{https://laurentperrinet.github.io/}
+\newcommand{\Email}{Laurent.Perrinet@univ-amu.fr}
+
+\hypersetup{
+  pdftitle={CNRS rapport d'activité à mi-vague 2022--2025},
+  pdfauthor={\Author},
+  pdfsubject={Rapport d'activité CNRS}
+}
+
+\usepackage{marginnote}
+\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
+\reversemarginpar
+\setlength{\marginparsep}{7pt}
+
+\title{\textbf{CNRS rapport d'activité à mi-vague}\\
+\large Période de Décembre 2022 à Juin 2025}
+\author{\Author\\[.3em]
+\small Directeur de Recherche DR2 CNRS\\
+\small \Institute\ (\InstituteUMR)\\
+\small \Address\\[.2em]
+\small \url{\Website} \quad \url{\Email}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Ce document synthétise mon activité de chercheur CNRS au sein de l'Institut de Neurosciences de la Timone (UMR 7289) durant la période Décembre 2022 à Juin 2025. Ce rapport synthétise mes avancées en neurosciences computationnelles combinant expérimentation, modélisation et applications. Parmi les résultats clés~: la découverte de neurones résilients à l'incertitude dans le cortex visuel (\emph{Nature Communications Biology}, 2023), le développement d'algorithmes bio-inspirés pour des robots aériens (ANR AgileNeuRobot), et une théorie innovante du codage temporel neuronal (projet Polychronies). Ces travaux ont donné lieu dans cette période à 14~publications, 5~thèses encadrées, et des collaborations internationales, tout en s'inscrivant dans une démarche active de vulgarisation (\emph{The Conversation}, \emph{Cerveau \& Psycho}). Ce rapport est écrit pour une évaluation à mi-vague par la section d'évaluation du CoNRS à l'automne 2025 et suit dans sa forme les recommandations du comité.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%============================================================
+\section{Curriculum vit\ae\ court}
+%============================================================
+
+\subsection*{Intérêts de recherche}
+
+Mes recherches examinent les bases théoriques et empiriques de l'adaptation neurale, en me concentrant sur la manière dont les propriétés structurelles et fonctionnelles co-évoluent pour traiter de manière optimale les régularités statistiques des environnements naturels.
+
+\subsection*{Domaines de spécialisation}
+
+Inférence spatio-temporelle dans les aires sensorielles de bas niveau. Apprentissage non supervisé dans les cartes topographiques. Processus prédictifs et perception active.
+
+\subsection*{Formation}
+
+\begin{tabular}{ll}
+\textbf{2017} & Habilitation à Diriger des Recherches (HDR) – Aix-Marseille Université \\
+\textbf{1999--2003} & Doctorat en neurosciences cognitives – ONERA/DTIM, Toulouse (France) \\
+\textbf{1993--1998} & Diplôme d'ingénieur – Supaéro (Toulouse, France) \\
+\end{tabular}
+
+\subsection*{Publications sélectionnées}
+
+\begin{tabular}{p{1.1cm}p{12cm}}
+\textbf{2024} & Antoine Grimaldi, Laurent U Perrinet. \og Learning heterogeneous delays in a layer of spiking neurons for fast motion detection. \fg{} \textbf{Biological Cybernetics}. \\[.3em]
+\textbf{2023} & Hugo Ladret, Nelson Cortes, Lamyae Ikan, Frédéric Chavane, Christian Casanova, Laurent U Perrinet. \og Cortical recurrence supports resilience to sensory variance in the primary visual cortex. \fg{} \textbf{Nature Communications Biology}. \\[.3em]
+\textbf{2021} & Victor Boutin, Angelo Franciosini, Franck Ruffier, Frédéric Chavane, Laurent U Perrinet. \og Sparse Deep Predictive Coding captures contour integration capabilities of the early visual system. \fg{} \textbf{PLoS Computational Biology}. \\[.3em]
+\textbf{2020} & Chloé Pasturel, Anna Montagnini, Laurent U Perrinet. \og Humans adapt their anticipatory eye movements to the volatility of visual motion properties. \fg{} \textbf{PLoS Computational Biology}. \\[.3em]
+\textbf{2012} & Karl Friston, Rick A. Adams, Laurent U Perrinet, Michael Breakspear. \og Perceptions as Hypotheses: Saccades as Experiments. \fg{} \textbf{Frontiers in Psychology}. \\[.3em]
+\textbf{2012} & Claudio Simoncini, Laurent U Perrinet, Anna Montagnini, Pascal Mamassian, Guillaume S Masson. \og More is not always better: dissociation between perception and action explained by adaptive gain control. \fg{} \textbf{Nature Neuroscience}. \\[.3em]
+\textbf{2010} & Laurent U Perrinet. \og Role of homeostasis in learning sparse representations. \fg{} \textbf{Neural Computation}. \\[.3em]
+\textbf{2004} & Laurent U Perrinet, Manuel Samuelides, Simon Thorpe. \og Coding static natural images using spiking event times: do neurons cooperate? \fg{} \textbf{IEEE Transactions on Neural Networks}. \\
+\end{tabular}
+
+\medskip
+\noindent\href{https://github.com/laurentperrinet/perrinet_curriculum-vitae.tex/blob/master/perrinet_curriculum-vitae-full.pdf}{Lien vers la version complète de mon curriculum vit\ae\ (PDF).}
+
+%============================================================
+\section{Résumé de mon activité}
+%============================================================
+
+Mon champ de recherche examine les caractéristiques des réseaux de neurones artificiels (RNA) appliqués à des modèles de la vision humaine ou animale. Cette recherche vise principalement à mieux comprendre le fonctionnement biologique des voies visuelles dans le système nerveux central, depuis la rétine jusqu'au contrôle du mouvement des yeux. De manière interdépendante, cette recherche permet de développer des méthodes d'apprentissage machine menant à des applications dans le domaine du traitement de l'image ou du signal. Sous cet angle, les RNA ont récemment connu un fort essor au travers de ce que l'on nomme de nos jours l'Intelligence Artificielle (IA) ou l'apprentissage profond.
+
+Dans ce contexte, mes recherches explorent les fondements théoriques et empiriques de l'adaptation neurale, en m'intéressant à la manière dont les propriétés structurelles et fonctionnelles co-évoluent pour traiter de manière optimale les régularités statistiques des environnements naturels. Un \textbf{premier axe expérimental}, mené en collaboration avec des neurophysiologistes, étudie la réponse du système biologique à des stimulations visuelles informées par la modélisation. Un \textbf{deuxième axe applicatif} utilise ces connaissances pour construire des algorithmes efficaces adaptés à des systèmes embarqués, comme des robots aériens. Un \textbf{troisième axe théorique} examine les conséquences de ces contraintes sur les modes de représentation possibles du code neural, en se concentrant notamment sur un codage temporel précis de l'information neurale.
+
+En pratique, mon approche en tant que chercheur du CNRS est de contribuer aux avancées scientifiques sous forme de publications dans des revues scientifiques à comité de lecture (14 dans la période de référence, dont 2 en cours d'évaluation) ainsi que de les présenter dans des conférences internationales (27~participations). Ce travail s'accompagne d'un effort de formation auprès des étudiants de Master et au niveau doctoral à travers la \og NeuroSchool \fg{} à Marseille. Je me suis aussi engagé dans les responsabilités collectives en siégeant à la commission interdisciplinaire \og Modélisation mathématique, informatique et physique pour les sciences du vivant \fg{} (CID51). Enfin, je participe activement au rayonnement de ces recherches à travers la vulgarisation (notamment dans \emph{Science \& Avenir}, \emph{Cerveau \& Psycho}, \emph{Epsiloon} ou \emph{The Conversation}) et une collaboration artistique pérenne avec Étienne Rey, artiste plasticien à la Friche Belle de Mai à Marseille.
+
+%============================================================
+\section{Rapport d'activité détaillé}
+%============================================================
+
+Mon sujet de recherche porte sur la compréhension des réseaux de neurones biologiques qui sous-tendent nos capacités visuelles. En particulier, je considère que ces capacités reposent sur des aptitudes à la prédiction, acquises par des processus d'apprentissage sur des scènes comportementalement significatives. Cette compréhension est abordée à travers des approches expérimentales, de modélisation, ainsi que de formalisation théorique.
+
+%------------------------------------------------------------
+\subsection{Axe expérimental}
+%------------------------------------------------------------
+
+Le premier axe de mes activités de recherche a pour objectif de valider expérimentalement les algorithmes de modélisation et hypothèses théoriques concernant les processus prédictifs sous-tendant nos capacités cognitives. J'ai développé une classe de stimuli appelée les \emph{Motion Clouds} qui permettent de tester les capacités de la vision à détecter des mouvements à différentes vitesses, orientations ou fréquences \citep*{SanzLeon12}.
+
+Pour examiner les processus prédictifs dans le système visuel, la thèse de Hugo Ladret s'est concentrée sur la capacité du cortex visuel primaire (V1) à représenter des informations de différentes précisions. Grâce à une collaboration avec l'Université de Montréal, nous avons développé un protocole expérimental en neurophysiologie qui a permis de tester la réponse à différents niveaux de précision. Notre étude a révélé deux populations neuronales distinctes dans V1~: l'une codant l'orientation avec une précision fine, l'autre exhibant une invariance à la précision~--- un mécanisme inédit impliquant des boucles récurrentes. Ces résultats, publiés dans \emph{Nature Communications Biology} \citep*{Ladret23}, remettent en cause les modèles classiques de traitement visuel et ouvrent des pistes pour des algorithmes robustes au bruit sensoriel.
+
+Cette thématique est actuellement développée par Alexandre Lainé (thèse débutée en octobre 2024, co-direction avec Sophie Denève), appliquée au Marmouset avec une technologie d'enregistrement basée sur des \emph{Neuropixels}. Une première présentation affichée a été donnée lors du congrès CNS~2025 à Florence, et un article est en cours de préparation.
+
+%------------------------------------------------------------
+\subsection{Axe applicatif}
+%------------------------------------------------------------
+
+Dans l'axe applicatif, nous avons élaboré des méthodes de traitement de l'image et des vidéos s'inspirant du fonctionnement du système visuel biologique. Durant la thèse de Victor Boutin, nous avons conçu des modèles hiérarchiques intégrant deux caractéristiques essentielles des systèmes biologiques~: une régularisation pour contrôler la parcimonie de l'activité neuronale, et des interactions descendantes permettant d'intégrer une information contextuelle. Ces travaux ont conduit à des publications sur la topographie de V1 \citep*{Chavane22} et à un modèle intégré de cette aire corticale \citep*{Franciosini22}.
+
+Grâce à une collaboration avec Stéphane Viollet (Institut des Sciences du Mouvement, Marseille) et Ryad Benosman (Institut de la Vision, Paris), et à l'obtention de l'ANR \textit{AgileNeuRobot} (ANR-20-CE23-0021) dont j'étais le porteur principal, nous avons étendu nos modèles du système visuel afin de les appliquer à des systèmes embarqués avec des contraintes énergétiques strictes. Ce projet utilise des caméras événementielles similaires dans leur nature au fonctionnement de la rétine biologique. Il a permis de recruter Antoine Grimaldi, qui a développé des algorithmes permettant la reconnaissance en temps réel \citep*{Grimaldi24}, l'apprentissage de réseaux basés sur un codage temporel précis \citep*{Grimaldi23bc}, et le calcul de cartes de temps de contact \citep*{Nunes23iccv}.
+
+Ce même projet ANR a permis le développement de la rétinotopie fovéée dans des algorithmes classiques d'apprentissage profond, grâce au travail doctoral de Jean-Nicolas Jérémie (soutenu en octobre 2025). Les résultats montrent une invariance à certaines transformations géométriques et une meilleure représentation de la localisation des objets \citep*{Jeremie25}.
+
+%------------------------------------------------------------
+\subsection{Axe théorique}
+%------------------------------------------------------------
+
+Mon axe théorique principal repose sur l'utilisation des théories des processus prédictifs afin de mieux comprendre le système nerveux central. Dans la période de référence, j'ai développé des hypothèses autour de la représentation de l'information prédictive, notamment la représentation des probabilités sous-jacentes à ces processus.
+
+En contraste avec l'approche classique où la fréquence de décharge encode une valeur analogique, j'ai développé une formalisation de la représentation de l'information sous forme de motifs spatio-temporels d'impulsions neuronales, basée sur la notion de \emph{polychronie}. Grâce au projet \textit{Polychronies} (A*MIDEX AMX-21-RID-025, 2022/2025), j'ai pu développer cette théorie, donnant lieu à un article de revue \citep*{Grimaldi22polychronies} et à des algorithmes neuromorphiques \citep*{Grimaldi23bc} démontrant un gain énergétique de l'ordre de 500~fois par rapport à une méthode analogique.
+
+%------------------------------------------------------------
+\subsection{Synthèse}
+%------------------------------------------------------------
+
+Les trois axes de mes recherches sont étroitement interconnectés, ce qui nécessite une forte interdisciplinarité. Mon intégration à l'INT permet de bien couvrir la composante expérimentale, et j'ai pu développer des collaborations pour les aspects de modélisation et de formalisation théorique. Nous avons récemment créé le centre de neurosciences computationnelles \href{https://conect-int.github.io/}{CONECT} à l'INT. Une perspective est de développer cette approche grâce à des collaborations internationales, notamment à travers le centre AISSAI du CNRS.
+
+%============================================================
+\section{Productions scientifiques significatives}
+%============================================================
+
+Je présente ici 5 productions scientifiques représentatives de l'interdisciplinarité de mon activité scientifique dans la période de référence~:
+
+\begin{enumerate}
+
+\item \textbf{Axe expérimental.} Hugo Ladret, Nelson Cortes, Lamyae Ikan, Frédéric Chavane, Christian Casanova, Laurent U Perrinet (2023). \og Cortical recurrence supports resilience to sensory variance in the primary visual cortex. \fg{} \emph{Nature Communications Biology}. \href{https://hal.science/hal-04142490v1}{hal-04142490}. Cette publication met en évidence la représentation neurale de la précision d'une information visuelle et a servi de base à l'approche de notre axe expérimental.
+
+\item \textbf{Vulgarisation.} Laurent U Perrinet, Hugo Ladret. \og Le mystère de la Joconde éclairé par les neurosciences. \fg{} \emph{Cerveau \& Psycho}, 2024, N°168, pp.~30--36. \href{https://hal.science/hal-04842606v1}{hal-04842606}. Cet article de vulgarisation a ouvert ces recherches à un large public et a donné lieu à d'autres retombées (articles, séminaires, podcast).
+
+\item \textbf{Axe applicatif.} Frédéric Chavane, Laurent U Perrinet, James Rankin (2022). \og Revisiting Horizontal Connectivity Rules in V1: From like-to-like towards like-to-All. \fg{} \emph{Brain Structure and Function}. \href{https://hal.science/hal-03572602}{hal-03572602}. Ce travail collaboratif propose une nouvelle manière d'aborder l'organisation topographique de V1.
+
+\item \textbf{Axe théorique.} Antoine Grimaldi, Amélie Gruel, Camille Besnainou, Jean-Nicolas Jérémie, Jean Martinet, Laurent U Perrinet (2022). \og Precise spiking motifs in neurobiological and neuromorphic data. \fg{} \href{https://hal.science/hal-03918338v1}{hal-03918338}. Nous y développons les fondements d'une théorie de codage basée sur le temps précis des potentiels d'action.
+
+\item \textbf{Intersection axe applicatif et théorique.} Antoine Grimaldi, Laurent U Perrinet (2023). \og Learning heterogeneous delays in a layer of spiking neurons for fast motion detection. \fg{} \emph{Biological Cybernetics}. \href{https://hal.science/hal-04204322v1}{hal-04204322}. Cette publication est l'application des principes de codage temporel précis à l'estimation d'un flux optique.
+
+\end{enumerate}
+
+%============================================================
+\section{Enseignement, formation et diffusion de la culture scientifique}
+%============================================================
+
+\subsection{Thèses dirigées et post-doctorats encadrés}
+
+\subsubsection*{Thèses finalisées dans la période de référence}
+
+\begin{itemize}
+    \item \href{https://laurentperrinet.github.io/author/hugo-ladret/}{Hugo Ladret} (09/2019~-- 02/2024) : \og A multiscale cortical model to account for orientation selectivity in natural-like stimulations \fg{} (co-direction Christian Casanova, Université de Montréal).
+    \item \href{https://laurentperrinet.github.io/author/antoine-grimaldi/}{Antoine Grimaldi} (09/2020~-- 03/2024) : \og Vision dynamique utilisant la précision temporelle des motifs d'impulsions dans les calculs neuronaux \fg{} (co-direction Jean Martinet, Université Côte d'Azur).
+    \item \href{https://laurentperrinet.github.io/author/amelie-gruel/}{Amélie Gruel} (09/2020~-- 09/2023) : \og Réseaux de neurones impulsionnels pour la vision embarquée basée sur les événements \fg{} (co-direction Jean Martinet, Université Côte d'Azur).
+\end{itemize}
+
+\subsubsection*{Thèses en cours}
+
+\begin{itemize}
+    \item \href{https://laurentperrinet.github.io/author/jean-nicolas-jeremie/}{Jean-Nicolas Jérémie} (10/2021~-- 10/2025) : \og Foveal Retinotopy and Dual Pathways: A Computational Model for Active Visual Search \fg{} (co-direction Emmanuel Daucé).
+    \item \href{https://laurentperrinet.github.io/author/kevin-mairot/}{Kevin Mairot} (10/2023~-- 09/2027) : \og Diagnostic des rétinopathies pigmentaires par IA : de l'imagerie rétinienne au gène \fg{} (co-direction Frédéric Matonti).
+    \item \href{https://laurentperrinet.github.io/author/alexandre-laine/}{Alexandre Lainé} (10/2024~-- 09/2027) : \og Analyse des données neurobiologiques guidée par la modélisation \fg{} (co-direction Sophie Denève).
+    \item \href{https://laurentperrinet.github.io/author/matthis-dallain/}{Matthis Dallain} (10/2024~-- 09/2027) : \og Focus de l'attention : une tâche sensorimotrice pour la réduction de la consommation d'énergie dans un réseau de neurones à impulsion \fg{} (co-direction Benoît Miramond et Laurent Rodriguez, UCA).
+    \item Agathe Choplin (10/2024~-- 09/2027) : \og Characterization of Physiological States using Machine Learning \fg{} (co-direction Thomas Rakotomamonjy, Sébastien Angelliaume et Nicolas Lantos, ONERA).
+    \item Charlotte Roy (09/2024~-- 09/2027) : \og Métaverse, avatar et bien-être \fg{} (co-direction Olivia Petit, KEDGE).
+\end{itemize}
+
+\subsubsection*{Post-doctorats}
+
+\begin{itemize}
+    \item \href{https://laurentperrinet.github.io/author/adrien-fois/}{Adrien Fois} (09/2023~-- 03/2025) : \og Accurate detection of precise spiking motifs in neurobiological data \fg{} (bourse Polychronies, AMX-21-RID-025).
+\end{itemize}
+
+\subsection{Participations à l'enseignement}
+
+J'enseigne auprès des étudiants de Master et au niveau doctoral, notamment à travers la \og NeuroSchool \fg{} à Marseille et l'Institut NeuroMod~:
+
+\begin{itemize}
+    \item \years{2023--2025} 2023-04-03, 2024-05-13, 2025-05-26~: Master M4NC de l'Institut NeuroMod, cours \og Prospective Innovation and Research \fg{} -- \emph{Artificial neural networks and machine learning applied to the understanding of biological vision} (\href{https://laurentperrinet.github.io/talk/artificial-neural-networks-and-machine-learning-applied-to-the-understanding-of-biological-vision/}{lien vers le cours}).
+    \item \years{2023--2026} 2023-03-29, 2024-04-10, 2026-03-05~: Master 1 Neurosciences et Sciences Cognitives (\href{https://laurentperrinet.github.io/talk/2023-04-05-ue-neurosciences-computationnelles/}{lien vers le cours}).
+    \item \years{2023--2025} 2023-05-10, 2024-04-17, 2025-03-11~: Programme doctoral \emph{NeuroSchool PhD Program in Neuroscience} (\href{https://laurentperrinet.github.io/talk/2024-04-17-phd-program-sparse-representations/}{lien vers le cours}).
+\end{itemize}
+
+\subsection{Organisation de conférences et workshops}
+
+\begin{itemize}
+    \item \years{Nov. 2024} Co-organisation de la conférence internationale \href{https://laurentperrinet.github.io/post/2024-11-08-snufa/}{\og SNUFA~: Spiking Neural networks as Universal Function Approximators \fg{}}.
+    \item Co-organisateur d'une série de conférences à venir \og Neuro4AI \fg{} avec le Centre AISSAI (France) et IVADO (Québec).
+\end{itemize}
+
+\subsection{Participation à des actions de vulgarisation}
+
+\begin{itemize}
+    \item \years{2023} Publication d'un article écrit pour le catalogue de l'exposition \og Vasarely, d'un art programmatique au numérique \fg{} (17 juin -- 15 octobre 2023, Espace Culturel départemental Lympia de Nice). \href{https://laurentperrinet.github.io/publication/perrinet-23-formes-et-perception/}{Lien}.
+    \item \years{2023} Participation au jury des Rencontres Internationales Sciences Et Cinémas (RISC). \href{https://laurentperrinet.github.io/post/2023-12-16-risc/}{Lien}.
+    \item \years{2024} \og Chats, mouches, humains~: comment la vision a évolué en de multiples facettes. \fg{} Article de \emph{The Conversation}. \href{https://laurentperrinet.github.io/publication/perrinet-24-yeux/}{Lien}.
+    \item \years{2024} Rencontre cinémas \& sciences à la prison des Baumettes -- Participation à la Structure d'Accompagnement à la Sortie. \href{https://laurentperrinet.github.io/post/2024-05-23-lieux-fictifs/}{Lien}.
+    \item \years{2024} \og Le mystère de la Joconde éclairé par les neurosciences. \fg{} \emph{Cerveau \& Psycho}. \href{https://laurentperrinet.github.io/post/2024-08-25-joconde/}{Lien}.
+    \item \years{2023} Participation à un article de dissémination pour \emph{Sciences \& Avenir} (Alice Carliez)~: \og Comment notre cerveau fait-il face à l'incertitude~? \fg{} \href{https://laurentperrinet.github.io/post/2023-07-26-epsiloon/}{Lien}.
+    \item \years{2025} Participation au Festival EXPLORE organisé par Aix-Marseille Université et la DR12 du CNRS. \href{https://laurentperrinet.github.io/talk/2025-06-10_explore-cine-sciences}{Lien}.
+    \item \years{2025} Conférence immersive~: \og La vision, réalité ou perception~? \fg{} \href{https://laurentperrinet.github.io/talk/2025-06-12_explore-conference-immersive}{Lien}.
+    \item \years{2025} Rencontre cinémas \& sciences à l'école Air Bel~: restitution du film \#nofakenews. \href{https://laurentperrinet.github.io/post/2025-09-23_belair-nofakenews/}{Lien}.
+\end{itemize}
+
+\subsection{Participations à des travaux d'expertise}
+
+\begin{itemize}
+    \item Rôle de relecteur pour 31 articles dans des journaux internationaux à comité de relecture~: \emph{Cell Reports}, \emph{Nature Human Behaviour}, \emph{Neuroscience and Biobehavioral Reviews}, \emph{PLOS ONE}, \emph{iScience}, \emph{PLoS CB}, \emph{PLoS Biology}, \emph{Vision Research}.
+    \item Membre de jurys pour de nombreuses bourses internationales (Belgique, Pays-Bas, Australie, Canada, États-Unis).
+\end{itemize}
+
+%============================================================
+\section{Encadrement, animation et management de la recherche}
+%============================================================
+
+\begin{itemize}
+    \item \textbf{Porteur de l'ANR \textit{AgileNeuRobot}} (ANR-20-CE23-0021, 2021--2025)~: \og Robots aériens agiles bio-mimétiques pour le vol en conditions réelles \fg{}, CES~: CE23 -- Intelligence Artificielle. Collaboration avec Stéphane Viollet (BioRobotique, Institut des Sciences du Mouvement) et Ryad Benosman (Institut de la Vision). Budget total~: 435\,k\euro{}. \href{https://laurentperrinet.github.io/grant/anr-anr/}{Lien}.
+
+    \item \textbf{Porteur du projet \textit{Polychronies}} (A*MIDEX AMX-21-RID-025, 2022--2025)~: aide de 100\,k\euro{} dans le cadre de France~2030 et de l'Initiative d'Excellence d'Aix-Marseille Université. \href{https://laurentperrinet.github.io/grant/polychronies/}{Lien}.
+
+    \item \textbf{Co-animation du \href{https://conect-int.github.io/}{CONECT}}~: Computational Neuroscience Center, incubateur au sein de l'INT pour promouvoir la neuroscience théorique et computationnelle.
+
+    \item \textbf{Responsabilités collectives au CNRS}~: membre de la commission interdisciplinaire \og Modélisation mathématique, informatique et physique pour les sciences du vivant \fg{} (CID51) durant le dernier mandat.
+\end{itemize}
+
+\medskip
+\noindent\small Contenu \copyright{} 2025 Laurent Perrinet -- \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons BY-NC-SA 4.0}.
+
+\end{document}
+
+
+
+
+
 % %!TEX root = perrinet20cnrs.tex
 % %!TeX TS-program = Lualatex
 % %!TeX encoding = UTF-8 Unicode

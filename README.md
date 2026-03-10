@@ -1,6 +1,5 @@
 # Document soumis le 2026-03-11 pour évaluation (section 51)
 
-
 Les sources LaTeX sont disponibles, pour réutilisation sous [licence](LICENSE) libre.
 
 ## Courier du SGCN

@@ -1,6 +1,6 @@
 default: pdf
 
-SRC = 2026-03-11_Perrinet-CNRS-rapport-activité
+SRC = 2026-03-11_Perrinet-CNRS-rapport-activite
 
 pdf: $(SRC).pdf
 #pdf: $(SRC).pdf $(SRC)_done.tex $(SRC)_cv.pdf $(SRC)_publications.pdf
