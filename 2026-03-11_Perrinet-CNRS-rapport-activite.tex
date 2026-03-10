@@ -64,7 +64,7 @@ Pour évaluation par les sections du Comité national}%
             ]{biblatex}%
 \addbibresource{~/sdrive_cnrs/blog/perrinet_curriculum-vitae.tex/LaurentPerrinet_publications.bib}
 \addbibresource{~/sdrive_cnrs/blog/perrinet_curriculum-vitae.tex/LaurentPerrinet_talks.bib}
-\addbibresource{~/Zotero/better-bibtex/zotero_export.bib}
+% \addbibresource{~/Zotero/better-bibtex/zotero_export.bib}
 %\usepackage[normalem]{ulem} %for \uline{}
 %\DeclareNameFormat{given-family}{
 %  \ifgiveninits
@@ -191,6 +191,10 @@ pdfsubject={\Title}%
 \end{titlepage}
 
 \newpage
+
+Ce document synthétise mon activité de chercheur CNRS au sein de l'Institut de Neurosciences de la Timone (UMR 7289) durant la période Décembre 2022 à Juin 2025. Il synthétise mes avancées en neurosciences computationnelles combinant expérimentation, modélisation et applications, notamment dans le champ de l'Intelligence Artificielle (IA). Parmi les résultats clés~: la découverte de neurones résilients à l'incertitude dans le cortex visuel (\emph{Nature Communications Biology}, 2023), le développement d'algorithmes bio-inspirés pour des robots aériens (ANR AgileNeuRobot), et une théorie innovante du codage temporel neuronal (projet Polychronies). Ces travaux ont donné lieu dans cette période à 14~publications, 5~thèses encadrées, et des collaborations internationales, tout en s'inscrivant dans une démarche active de vulgarisation (\emph{The Conversation}, \emph{Cerveau \& Psycho}). Ce rapport est écrit pour une évaluation à mi-vague par la section d'évaluation du CoNRS au printemps 2026 et suit dans sa forme les recommandations du comité.
+
+
 \tableofcontents
 \newpage
 %%%%%%%%%%%% Endyet daag koepf dokumentet %%%%%%%%%%%%%%%
@@ -343,34 +347,63 @@ Spécialisation dans le traitement du signal et de l'image et en particulier dan
 \newpage
 
 
-\subsection*{Objectifs de Recherche}
+\section{Résumé de mon activité scientifique}
 
 Mon programme de recherche vise à élucider les relations entre structure
 neurale et fonction sensorielle : comment l'organisation topographique des
 neurones et la nature impulsionnelle du signal nerveux permettent-elles aux
 systèmes sensoriels de s'adapter de façon optimale aux statistiques des
 scènes naturelles, par des mécanismes de traitement prédictif ?
-
 Plus précisément, je cherche à formaliser les facultés sensorielles et
 cognitives sous la forme de réseaux de neurones impulsionnels réalisant
 efficacement des algorithmes de perception visuelle. Les potentiels d'action
---- brèves impulsions se propageant de neurone en neurone --- constituent en
-effet une caractéristique universelle des systèmes nerveux et offrent un
-substrat naturel pour modéliser le traitement dynamique de l'information.
-Sur le plan fonctionnel, j'intègre dans ces modèles des stratégies
-d'inférence reposant sur des mécanismes d'apprentissage auto-organisés, qui
-ancrent les relations spatio-temporelles entre neurones. Sur le plan
-applicatif, ces travaux ouvrent la voie à de nouveaux algorithmes
-neuromorphiques à haute efficacité énergétique.
+--- brèves impulsions se propageant de neurone en neurone --- constituent
+une caractéristique universelle des systèmes nerveux et offrent un substrat
+naturel pour modéliser le traitement dynamique de l'information. Sur le plan
+fonctionnel, j'intègre dans ces modèles des stratégies d'inférence reposant
+sur des mécanismes d'apprentissage auto-organisés qui ancrent les relations
+spatio-temporelles entre neurones. Sur le plan applicatif, ces travaux
+ouvrent la voie à de nouveaux algorithmes neuromorphiques à haute efficacité
+énergétique.
 
-\subsection*{Résumé des travaux antérieurs et de leur impact scientifique}
+\subsection*{Travaux antérieurs}
 
-Mes travaux de thèse dirigés par Simon Thorpe et Manuel Samuelides ont permis d'explorer dans un cadre mathématique de nouveaux paradigmes de codage neural impulsionnel pour des images statiques~\citep{Perrinet03ieee}, et en particulier comment ceux-ci peuvent être appris par des règles hebbiennes parcimonieuses~\citep{Perrinet10shl}. Ces travaux ont été étendus en collaboration avec Guillaume Masson à des modèles d'inférence statistique appliqués aux mouvements des yeux et à la boucle perception--action~\citep{Simoncini12}. Un cadre théorique précis a ensuite été développé en collaboration avec Karl Friston pour intégrer les délais temporels dans les modèles prédictifs~\citep{PerrinetAdamsFriston14}.
+Mes travaux de thèse, dirigés par Simon Thorpe et Manuel Samuelides, ont
+posé les bases mathématiques d'un codage neural impulsionnel pour les images
+statiques~\citep{Perrinet03ieee}, en montrant notamment comment des
+représentations parcimonieuses peuvent émerger de règles d'apprentissage
+hebbiennes~\citep{Perrinet10shl}. En collaboration avec Guillaume Masson,
+ces modèles ont été étendus à l'inférence statistique appliquée aux
+mouvements des yeux et à la boucle perception--action~\citep{Simoncini12}.
+La collaboration avec Karl Friston a ensuite permis de fonder un cadre
+théorique rigoureux pour intégrer les délais temporels dans les modèles
+prédictifs~\citep{PerrinetAdamsFriston14}.
 
-Plus récemment, j'ai étendu ces modèles au traitement dynamique de scènes visuelles en mouvement~\citep{KhoeiMassonPerrinet17}, puis à des architectures hiérarchiques bio-inspirées~\citep{BoutinFranciosiniChavaneRuffierPerrinet20,Franciosini21}. Ces travaux ont notamment permis de revisiter  en collaboration avec Frédéric Chavane la structure de la connectivité horizontale dans le cortex visuel primaire~\citep{Chavane22}. Nous avons par ailleurs mis en évidence le rôle de la précision sensorielle dans le traitement de l'information corticale~\citep{Ladret23}, ouvrant la voie à une représentation parcimonieuse plus efficace des images naturelles~\citep{Ladret24sparse}.
+\subsection*{Avancées récentes}
 
-Ces avancées nous ont permis de concevoir de nouveaux algorithmes neuromorphiques de type réseaux de neurones impulsionnels (SNN), capables d'une reconnaissance robuste et ultra-rapide fondée sur la détection de motifs spatio-temporels de spikes~\citep{Grimaldi24}. En parallèle, l'intégration d'une rétinotopie fovéale dans des architectures de vision bio-inspirées améliore significativement la localisation et la catégorisation d'objets dans des conditions écologiques~\citep{Jeremie25}, y compris pour des tâches de recherche visuelle active~\citep{Jeremie25thesis}. Enfin, des collaborations récentes ont étendu le cadre du codage prédictif à la prévision de séries temporelles~\citep{Gunasekaran25} et à la modélisation de textures dynamiques naturelles~\citep{Meso25}, illustrant la portée transversale de ces approches.
+Ces fondations ont guidé une série d'extensions vers le traitement dynamique
+de scènes visuelles en mouvement~\citep{KhoeiMassonPerrinet17}, puis vers
+des architectures hiérarchiques bio-inspirées intégrant parcimonie et
+rétroaction descendante~\citep{BoutinFranciosiniChavaneRuffierPerrinet20,Franciosini21}.
+En collaboration avec Frédéric Chavane, nous avons revisité la structure de
+la connectivité horizontale dans le cortex visuel primaire~\citep{Chavane22}
+et mis en évidence le rôle de la précision sensorielle dans le traitement
+cortical de l'information~\citep{Ladret23}, ouvrant la voie à une
+représentation parcimonieuse plus efficace des images naturelles~\citep{Ladret24sparse}.
 
+\subsection*{Perspectives}
+
+Ces avancées ont permis de concevoir des algorithmes neuromorphiques de type
+réseaux de neurones impulsionnels (SNN) capables d'une reconnaissance robuste
+et ultra-rapide fondée sur la détection de motifs spatio-temporels de
+spikes~\citep{Grimaldi24}. L'intégration d'une rétinotopie fovéale dans des
+architectures bio-inspirées améliore par ailleurs significativement la
+localisation et la catégorisation d'objets dans des conditions
+écologiques~\citep{Jeremie25,Jeremie25thesis}. Des collaborations récentes
+ont enfin étendu le cadre du codage prédictif à la prévision de séries
+temporelles~\citep{Gunasekaran25} et à la modélisation de textures dynamiques
+naturelles~\citep{Meso25}, illustrant la portée transversale de ces approches
+bien au-delà de la vision.
 
 
 \newpage
@@ -384,8 +417,72 @@ Ces avancées nous ont permis de concevoir de nouveaux algorithmes neuromorphiqu
 Je présente ici un choix de 10 productions scientifiques pour les 10 derniers
 semestres d’activité. Les codes dans la marge correspondent à ceux utilisés dans la \href{https://raw.githubusercontent.com/laurentperrinet/perrinet_curriculum-vitae.tex/master/perrinet_publications.pdf}{liste complète des publications}.
 
-\input{publications}
+% Publications sélectionnées de la période Décembre 2022 -- Juin 2025
+% Suivant le modèle du rapport d'activité CNRS
+% Numérotation continuant depuis A50 (dernier numéro connu)
 
+\begin{enumerate}
+
+% -------------------------------------------------------
+% REVUES INTERNATIONALES À COMITÉ DE LECTURE
+% -------------------------------------------------------
+
+\item[A58] \fullcite{Meso25}% _LA_
+\begin{itemize}
+  \item Cette publication présente une boîte à outils open source pour la génération en temps réel de textures dynamiques naturelles (Motion Clouds), permettant leur intégration directe dans des environnements expérimentaux de psychophysique (Psychtoolbox, PsychoPy). Elle fournit ainsi un outil standard pour les études de perception visuelle du mouvement.
+\end{itemize}
+
+\item[A57] \fullcite{Gunasekaran25}% _LA_
+\begin{itemize}
+  \item Nous étendons le cadre du codage prédictif à la prévision de séries temporelles. Un mécanisme de rétroaction dynamique, inspiré des principes de minimisation de la surprise, permet au modèle de s'adapter aux dérives de distribution des données. Appliqué à la prédiction de crises épileptiques, le gain est de l'ordre de 40\,\% en AUC-ROC.
+\end{itemize}
+
+\item[A56] \fullcite{Ladret24sparse}% _LA_
+\begin{itemize}
+  \item Ce travail montre que l'introduction d'une hétérogénéité dans les noyaux de filtrage améliore la parcimonie des représentations d'images naturelles. Ce résultat relie directement la diversité observée dans les champs récepteurs biologiques à une fonction computationnelle précise : maximiser l'efficacité du codage.
+\end{itemize}
+
+\item[A55] \fullcite{Grimaldi24}% _LA_
+\begin{itemize}
+  \item Nous proposons une approche événementielle robuste pour la reconnaissance d'objets en continu (\emph{always-on}), à partir de flux de caméras événementielles. L'originalité est de combiner un réseau de neurones à impulsions (SNN) avec une caractérisation extensive des performances en fonction des paramètres d'entrée, en rapprochant les modèles neuromorphiques de l'efficacité du système biologique.
+\end{itemize}
+
+\item[A54] \fullcite{Grimaldi23BC}% _LA_
+\begin{itemize}
+  \item Cette publication introduit une couche de neurones à impulsions capable d'apprendre des délais hétérogènes pour la détection ultra-rapide du mouvement. Un résultat clé est un gain énergétique de l'ordre de 500 fois par rapport aux approches analogiques classiques, tout en maintenant des performances comparables sur des données neuromorphiques réelles.
+\end{itemize}
+
+\item[A53] \fullcite{Ladret23}% _LA_
+\begin{itemize}
+  \item Ce travail expérimental et computationnel révèle deux populations neuronales distinctes dans le cortex visuel primaire (V1) : l'une encodant l'orientation avec précision, l'autre exhibant une invariance à la variance sensorielle via des boucles récurrentes. Ces résultats remettent en question les modèles classiques de traitement visuel hiérarchique et ouvrent la voie à des algorithmes robustes au bruit.
+\end{itemize}
+
+\item[A52] \fullcite{Franciosini21}% _LA_
+\begin{itemize}
+  \item Ce travail étend un modèle prédictif de V1 en y intégrant un mécanisme de \emph{pooling} bio-inspiré, permettant d'expliquer à la fois la diversité fonctionnelle et structurelle observée entre espèces dans le cortex visuel primaire. Il établit un lien quantitatif entre les paramètres architecturaux du modèle et les données anatomiques.
+\end{itemize}
+
+\item[A51] \fullcite{Chavane22}% _LA_
+\begin{itemize}
+  \item Dans cette revue de l'état de l'art sur la connectivité horizontale de V1, nous proposons une hypothèse novatrice : la connectivité s'organise non pas selon le principe classique \og like-to-like \fg{} (neurones de même orientation), mais de façon plus distribuée, \og like-to-all \fg{}. Cette hypothèse réconcilie des données anatomiques et fonctionnelles jusqu'alors contradictoires.
+\end{itemize}
+
+% -------------------------------------------------------
+% ACTES DE CONGRÈS AVEC COMITÉ DE LECTURE
+% -------------------------------------------------------
+
+\item[C9] \fullcite{Nunes23ICCV}%
+\begin{itemize}
+  \item Nous présentons un algorithme temps réel pour le calcul de cartes de temps-de-contact à partir d'une seule caméra événementielle, par estimation conjointe de la profondeur inverse et du mouvement global. Cette contribution est essentielle pour la navigation autonome de robots aériens à faible consommation.
+\end{itemize}
+
+\item[C8] \fullcite{Grimaldi22polychronies}%
+\begin{itemize}
+  \item À notre initiative, nous développons les fondements d'une théorie du codage neural basée sur des motifs spatio-temporels précis d'impulsions (\emph{polychronies}). Nous passons en revue les évidences biologiques et neuromorphiques en faveur de ce paradigme, et proposons des méthodes de détection adaptées.
+\end{itemize}
+
+
+\end{enumerate}
 \newpage
 \section{Enseignement, formation et diffusion de la culture scientifique de décembre 2022 à juin 2025} %{\small(journaux à  comité de lecture)}}
 
@@ -665,11 +762,110 @@ Outre ces responsabilités scientifiques, je participe à l'animation scientifiq
 \end{itemize}
 
 \newpage
-\section{Objectifs / Projet de recherche de janvier 2022 à janvier 2027}
+\section{Objectifs de recherche de Juin 2025 à Juin 2030}
 
-% \input{objectifs}
+
+Mon champ de recherche examine les caractéristiques des réseaux de neurones artificiels (RNA) appliqués à des modèles de la vision humaine ou animale. Cette recherche vise principalement à mieux comprendre le fonctionnement biologique des voies visuelles dans le système nerveux central, depuis la rétine jusqu'au contrôle du mouvement des yeux. De manière interdépendante, cette recherche permet de développer des méthodes d'apprentissage machine menant à des applications dans le domaine du traitement de l'image ou du signal. Sous cet angle, les RNA ont récemment connu un fort essor au travers de ce que l'on nomme de nos jours l'Intelligence Artificielle (IA) ou l'apprentissage profond.
+
+Dans ce contexte, mes recherches explorent les fondements théoriques et empiriques de l'adaptation neurale, en m'intéressant à la manière dont les propriétés structurelles et fonctionnelles co-évoluent pour traiter de manière optimale les régularités statistiques des environnements naturels. Un \textbf{premier axe expérimental}, mené en collaboration avec des neurophysiologistes, étudie la réponse du système biologique à des stimulations visuelles informées par la modélisation. Un \textbf{deuxième axe applicatif} utilise ces connaissances pour construire des algorithmes efficaces adaptés à des systèmes embarqués, comme des robots aériens. Un \textbf{troisième axe théorique} examine les conséquences de ces contraintes sur les modes de représentation possibles du code neural, en se concentrant notamment sur un codage temporel précis de l'information neurale.
+
+En pratique, mon approche en tant que chercheur du CNRS est de contribuer aux avancées scientifiques sous forme de publications dans des revues scientifiques à comité de lecture (14 dans la période de référence, dont 2 en cours d'évaluation) ainsi que de les présenter dans des conférences internationales (27~participations). Ce travail s'accompagne d'un effort de formation auprès des étudiants de Master et au niveau doctoral à travers la \og NeuroSchool \fg{} à Marseille. Je me suis aussi engagé dans les responsabilités collectives en siégeant à la commission interdisciplinaire \og Modélisation mathématique, informatique et physique pour les sciences du vivant \fg{} (CID51). Enfin, je participe activement au rayonnement de ces recherches à travers la vulgarisation (notamment dans \emph{Science \& Avenir}, \emph{Cerveau \& Psycho}, \emph{Epsiloon} ou \emph{The Conversation}) et une collaboration artistique pérenne avec Étienne Rey, artiste plasticien à la Friche Belle de Mai à Marseille.
+
+%============================================================
+\section{Rapport d'activité détaillé}
+%============================================================
+
+Mon sujet de recherche porte sur la compréhension des réseaux de neurones biologiques qui sous-tendent nos capacités visuelles. En particulier, je considère que ces capacités reposent sur des aptitudes à la prédiction, acquises par des processus d'apprentissage sur des scènes comportementalement significatives. Cette compréhension est abordée à travers des approches expérimentales, de modélisation, ainsi que de formalisation théorique.
+
+%------------------------------------------------------------
+\subsection{Axe expérimental}
+%------------------------------------------------------------
+
+Le premier axe de mes activités de recherche a pour objectif de valider expérimentalement les algorithmes de modélisation et hypothèses théoriques concernant les processus prédictifs sous-tendant nos capacités cognitives. J'ai développé une classe de stimuli appelée les \emph{Motion Clouds} qui permettent de tester les capacités de la vision à détecter des mouvements à différentes vitesses, orientations ou fréquences~\citep{SanzLeon12}.
+
+Pour examiner les processus prédictifs dans le système visuel, la thèse de Hugo Ladret s'est concentrée sur la capacité du cortex visuel primaire (V1) à représenter des informations de différentes précisions. Grâce à une collaboration avec l'Université de Montréal, nous avons développé un protocole expérimental en neurophysiologie qui a permis de tester la réponse à différents niveaux de précision. Notre étude a révélé deux populations neuronales distinctes dans V1~: l'une codant l'orientation avec une précision fine, l'autre exhibant une invariance à la précision~--- un mécanisme inédit impliquant des boucles récurrentes. Ces résultats, publiés dans \emph{Nature Communications Biology}~\citep{Ladret23}, remettent en cause les modèles classiques de traitement visuel et ouvrent des pistes pour des algorithmes robustes au bruit sensoriel.
+
+Cette thématique est actuellement développée par Alexandre Lainé (thèse débutée en octobre 2024, co-direction avec Sophie Denève), appliquée au Marmouset avec une technologie d'enregistrement basée sur des \emph{Neuropixels}. Une première présentation affichée a été donnée lors du congrès CNS~2025 à Florence, et un article est en cours de préparation.
+
+%------------------------------------------------------------
+\subsection{Axe applicatif}
+%------------------------------------------------------------
+
+Dans l'axe applicatif, nous avons élaboré des méthodes de traitement de l'image et des vidéos s'inspirant du fonctionnement du système visuel biologique. Durant la thèse de Victor Boutin, nous avons conçu des modèles hiérarchiques intégrant deux caractéristiques essentielles des systèmes biologiques~: une régularisation pour contrôler la parcimonie de l'activité neuronale, et des interactions descendantes permettant d'intégrer une information contextuelle. Ces travaux ont conduit à des publications sur la topographie de V1~\citep{Chavane22} et à un modèle intégré de cette aire corticale~\citep{Franciosini21}.
+
+Grâce à une collaboration avec Stéphane Viollet (Institut des Sciences du Mouvement, Marseille) et Ryad Benosman (Institut de la Vision, Paris), et à l'obtention de l'ANR \textit{AgileNeuRobot} (ANR-20-CE23-0021) dont j'étais le porteur principal, nous avons étendu nos modèles du système visuel afin de les appliquer à des systèmes embarqués avec des contraintes énergétiques strictes. Ce projet utilise des caméras événementielles similaires dans leur nature au fonctionnement de la rétine biologique. Il a permis de recruter Antoine Grimaldi, qui a développé des algorithmes permettant la reconnaissance en temps réel~\citep{Grimaldi24}, l'apprentissage de réseaux basés sur un codage temporel précis~\citep{Grimaldi23BC}, et le calcul de cartes de temps de contact~\citep{Nunes23ICCV}.
+
+Ce même projet ANR a permis le développement de la rétinotopie fovéée dans des algorithmes classiques d'apprentissage profond, grâce au travail doctoral de Jean-Nicolas Jérémie (soutenu en octobre 2025). Les résultats montrent une invariance à certaines transformations géométriques et une meilleure représentation de la localisation des objets~\citep{Jeremie25}.
+
+%------------------------------------------------------------
+\subsection{Axe théorique}
+%------------------------------------------------------------
+
+Mon axe théorique principal repose sur l'utilisation des théories des processus prédictifs afin de mieux comprendre le système nerveux central. Dans la période de référence, j'ai développé des hypothèses autour de la représentation de l'information prédictive, notamment la représentation des probabilités sous-jacentes à ces processus.
+
+En contraste avec l'approche classique où la fréquence de décharge encode une valeur analogique, j'ai développé une formalisation de la représentation de l'information sous forme de motifs spatio-temporels d'impulsions neuronales, basée sur la notion de \emph{polychronie}. Grâce au projet \textit{Polychronies} (A*MIDEX AMX-21-RID-025, 2022/2025), j'ai pu développer cette théorie, donnant lieu à un article de revue~\citep{Grimaldi22polychronies} et à des algorithmes neuromorphiques~\citep{Grimaldi23bc} démontrant un gain énergétique de l'ordre de 500~fois par rapport à une méthode analogique.
+
+%------------------------------------------------------------
+\subsection{Synthèse}
+%------------------------------------------------------------
+
+Les trois axes de mes recherches sont étroitement interconnectés, ce qui nécessite une forte interdisciplinarité. Mon intégration à l'INT permet de bien couvrir la composante expérimentale, et j'ai pu développer des collaborations pour les aspects de modélisation et de formalisation théorique. Nous avons récemment créé le centre de neurosciences computationnelles \href{https://conect-int.github.io/}{CONECT} à l'INT. Une perspective est de développer cette approche grâce à des collaborations internationales, notamment à travers le centre AISSAI du CNRS.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%============================================================
+\section{Résumé de mon activité}
+%============================================================
+
+Mon champ de recherche examine les caractéristiques des réseaux de neurones artificiels (RNA) appliqués à des modèles de la vision humaine ou animale. Cette recherche vise principalement à mieux comprendre le fonctionnement biologique des voies visuelles dans le système nerveux central, depuis la rétine jusqu'au contrôle du mouvement des yeux. De manière interdépendante, cette recherche permet de développer des méthodes d'apprentissage machine menant à des applications dans le domaine du traitement de l'image ou du signal. Sous cet angle, les RNA ont récemment connu un fort essor au travers de ce que l'on nomme de nos jours l'Intelligence Artificielle (IA) ou l'apprentissage profond.
+
+Dans ce contexte, mes recherches explorent les fondements théoriques et empiriques de l'adaptation neurale, en m'intéressant à la manière dont les propriétés structurelles et fonctionnelles co-évoluent pour traiter de manière optimale les régularités statistiques des environnements naturels. Un \textbf{premier axe expérimental}, mené en collaboration avec des neurophysiologistes, étudie la réponse du système biologique à des stimulations visuelles informées par la modélisation. Un \textbf{deuxième axe applicatif} utilise ces connaissances pour construire des algorithmes efficaces adaptés à des systèmes embarqués, comme des robots aériens. Un \textbf{troisième axe théorique} examine les conséquences de ces contraintes sur les modes de représentation possibles du code neural, en se concentrant notamment sur un codage temporel précis de l'information neurale.
+
+En pratique, mon approche en tant que chercheur du CNRS est de contribuer aux avancées scientifiques sous forme de publications dans des revues scientifiques à comité de lecture (14 dans la période de référence, dont 2 en cours d'évaluation) ainsi que de les présenter dans des conférences internationales (27~participations). Ce travail s'accompagne d'un effort de formation auprès des étudiants de Master et au niveau doctoral à travers la \og NeuroSchool \fg{} à Marseille. Je me suis aussi engagé dans les responsabilités collectives en siégeant à la commission interdisciplinaire \og Modélisation mathématique, informatique et physique pour les sciences du vivant \fg{} (CID51). Enfin, je participe activement au rayonnement de ces recherches à travers la vulgarisation (notamment dans \emph{Science \& Avenir}, \emph{Cerveau \& Psycho}, \emph{Epsiloon} ou \emph{The Conversation}) et une collaboration artistique pérenne avec Étienne Rey, artiste plasticien à la Friche Belle de Mai à Marseille.
+
+%============================================================
+\section{Rapport d'activité détaillé}
+%============================================================
+
+Mon sujet de recherche porte sur la compréhension des réseaux de neurones biologiques qui sous-tendent nos capacités visuelles. En particulier, je considère que ces capacités reposent sur des aptitudes à la prédiction, acquises par des processus d'apprentissage sur des scènes comportementalement significatives. Cette compréhension est abordée à travers des approches expérimentales, de modélisation, ainsi que de formalisation théorique.
+
+%------------------------------------------------------------
+\subsection{Axe expérimental}
+%------------------------------------------------------------
+
+Le premier axe de mes activités de recherche a pour objectif de valider expérimentalement les algorithmes de modélisation et hypothèses théoriques concernant les processus prédictifs sous-tendant nos capacités cognitives. J'ai développé une classe de stimuli appelée les \emph{Motion Clouds} qui permettent de tester les capacités de la vision à détecter des mouvements à différentes vitesses, orientations ou fréquences \citep*{SanzLeon12}.
+
+Pour examiner les processus prédictifs dans le système visuel, la thèse de Hugo Ladret s'est concentrée sur la capacité du cortex visuel primaire (V1) à représenter des informations de différentes précisions. Grâce à une collaboration avec l'Université de Montréal, nous avons développé un protocole expérimental en neurophysiologie qui a permis de tester la réponse à différents niveaux de précision. Notre étude a révélé deux populations neuronales distinctes dans V1~: l'une codant l'orientation avec une précision fine, l'autre exhibant une invariance à la précision~--- un mécanisme inédit impliquant des boucles récurrentes. Ces résultats, publiés dans \emph{Nature Communications Biology} \citep*{Ladret23}, remettent en cause les modèles classiques de traitement visuel et ouvrent des pistes pour des algorithmes robustes au bruit sensoriel.
+
+Cette thématique est actuellement développée par Alexandre Lainé (thèse débutée en octobre 2024, co-direction avec Sophie Denève), appliquée au Marmouset avec une technologie d'enregistrement basée sur des \emph{Neuropixels}. Une première présentation affichée a été donnée lors du congrès CNS~2025 à Florence, et un article est en cours de préparation.
+
+%------------------------------------------------------------
+\subsection{Axe applicatif}
+%------------------------------------------------------------
+
+Dans l'axe applicatif, nous avons élaboré des méthodes de traitement de l'image et des vidéos s'inspirant du fonctionnement du système visuel biologique. Durant la thèse de Victor Boutin, nous avons conçu des modèles hiérarchiques intégrant deux caractéristiques essentielles des systèmes biologiques~: une régularisation pour contrôler la parcimonie de l'activité neuronale, et des interactions descendantes permettant d'intégrer une information contextuelle. Ces travaux ont conduit à des publications sur la topographie de V1 \citep*{Chavane22} et à un modèle intégré de cette aire corticale \citep*{Franciosini22}.
+
+Grâce à une collaboration avec Stéphane Viollet (Institut des Sciences du Mouvement, Marseille) et Ryad Benosman (Institut de la Vision, Paris), et à l'obtention de l'ANR \textit{AgileNeuRobot} (ANR-20-CE23-0021) dont j'étais le porteur principal, nous avons étendu nos modèles du système visuel afin de les appliquer à des systèmes embarqués avec des contraintes énergétiques strictes. Ce projet utilise des caméras événementielles similaires dans leur nature au fonctionnement de la rétine biologique. Il a permis de recruter Antoine Grimaldi, qui a développé des algorithmes permettant la reconnaissance en temps réel \citep*{Grimaldi24}, l'apprentissage de réseaux basés sur un codage temporel précis \citep*{Grimaldi23bc}, et le calcul de cartes de temps de contact \citep*{Nunes23iccv}.
+
+Ce même projet ANR a permis le développement de la rétinotopie fovéée dans des algorithmes classiques d'apprentissage profond, grâce au travail doctoral de Jean-Nicolas Jérémie (soutenu en octobre 2025). Les résultats montrent une invariance à certaines transformations géométriques et une meilleure représentation de la localisation des objets \citep*{Jeremie25}.
+
+%------------------------------------------------------------
+\subsection{Axe théorique}
+%------------------------------------------------------------
+
+Mon axe théorique principal repose sur l'utilisation des théories des processus prédictifs afin de mieux comprendre le système nerveux central. Dans la période de référence, j'ai développé des hypothèses autour de la représentation de l'information prédictive, notamment la représentation des probabilités sous-jacentes à ces processus.
+
+En contraste avec l'approche classique où la fréquence de décharge encode une valeur analogique, j'ai développé une formalisation de la représentation de l'information sous forme de motifs spatio-temporels d'impulsions neuronales, basée sur la notion de \emph{polychronie}. Grâce au projet \textit{Polychronies} (A*MIDEX AMX-21-RID-025, 2022/2025), j'ai pu développer cette théorie, donnant lieu à un article de revue \citep*{Grimaldi22polychronies} et à des algorithmes neuromorphiques \citep*{Grimaldi23bc} démontrant un gain énergétique de l'ordre de 500~fois par rapport à une méthode analogique.
+
+%------------------------------------------------------------
+\subsection{Synthèse}
+%------------------------------------------------------------
+
+Les trois axes de mes recherches sont étroitement interconnectés, ce qui nécessite une forte interdisciplinarité. Mon intégration à l'INT permet de bien couvrir la composante expérimentale, et j'ai pu développer des collaborations pour les aspects de modélisation et de formalisation théorique. Nous avons récemment créé le centre de neurosciences computationnelles \href{https://conect-int.github.io/}{CONECT} à l'INT. Une perspective est de développer cette approche grâce à des collaborations internationales, notamment à travers le centre AISSAI du CNRS.
+
+
+
 \newpage
 \printbibliography
 \end{document} %
